@@ -93,7 +93,7 @@ export default function ThemeSwitcher() {
               <button
                 key={t}
                 className={`outline-base-content overflow-hidden rounded-lg text-left ${
-                  theme === t ? 'outline outline-2 outline-offset-2' : ''
+                  theme === t ? 'outline-2 outline-offset-2' : ''
                 }`}
                 onClick={() => handleThemeChange(t)}
               >
