@@ -14,9 +14,16 @@ export default function Footer() {
               Dans Tramp Stamp and the Money Bags - Professional live music for
               all occasions.
             </p>
-            <p>
+            <p className='mb-4'>
               Bringing the party to your weddings, corporate events, and private
               parties.
+            </p>
+            <p className='text-sm opacity-90 border-l-2 border-primary pl-3'>
+              Also booking as{' '}
+              <span className='font-bold text-primary-content'>
+                The Charleston Wedding Band
+              </span>{' '}
+              for wedding events.
             </p>
           </div>
 

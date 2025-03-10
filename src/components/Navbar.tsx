@@ -38,6 +38,12 @@ export default function Navbar() {
               Services
             </Link>
             <Link
+              href='/gallery'
+              className='text-neutral hover:text-primary transition-colors'
+            >
+              Gallery
+            </Link>
+            <Link
               href='/contact'
               className='text-neutral hover:text-primary transition-colors'
             >
@@ -108,6 +114,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Services
+            </Link>
+            <Link
+              href='/gallery'
+              className='text-neutral hover:text-primary transition-colors px-2 py-1'
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Gallery
             </Link>
             <Link
               href='/contact'

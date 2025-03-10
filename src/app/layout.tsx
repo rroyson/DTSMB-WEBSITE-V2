@@ -26,16 +26,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang='en' data-theme='dtsmb'>
+      <head>{/* Using local images - no preloading needed */}</head>
       <body
         className={`${inter.variable} ${playfairDisplay.variable} font-sans min-h-screen flex flex-col`}
       >
         <Navbar />
-        <main className='flex-grow'>{children}</main>
+        <main className='flex-grow will-change-transform'>{children}</main>
         <Footer />
       </body>
     </html>

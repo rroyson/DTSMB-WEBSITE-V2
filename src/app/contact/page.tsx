@@ -293,6 +293,23 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+
+            <div className='collapse collapse-plus bg-base-100'>
+              <input type='radio' name='faq-accordion' />
+              <div className='collapse-title text-xl font-medium'>
+                What is The Charleston Wedding Band?
+              </div>
+              <div className='collapse-content'>
+                <p>
+                  The Charleston Wedding Band is our wedding-focused brand.
+                  It&apos;s the same talented musicians as DTSMB, but with
+                  branding and presentation specifically designed for elegant
+                  wedding celebrations. When you book us for your wedding, you
+                  can choose which band name you prefer for your event - both
+                  feature the same exceptional musicians and repertoire.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -306,6 +323,12 @@ export default function ContactPage() {
           <p className='text-xl mb-8 max-w-2xl mx-auto'>
             Complete our form above or reach out directly. We can&apos;t wait to
             be part of your special day!
+          </p>
+          <p className='mb-6 text-white/90 max-w-2xl mx-auto'>
+            <span className='font-bold'>Planning a wedding?</span> We also
+            perform as{' '}
+            <span className='font-bold'>The Charleston Wedding Band</span> -
+            same exceptional musicians, perfect for your elegant celebration.
           </p>
           <div className='flex flex-col sm:flex-row justify-center gap-4'>
             <a href='tel:+15551234567' className='btn btn-lg btn-secondary'>

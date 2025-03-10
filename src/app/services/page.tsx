@@ -65,7 +65,7 @@ export default function ServicesPage() {
 
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-16'>
             {/* Wedding Card */}
-            <div className='card bg-base-100 shadow-xl overflow-hidden'>
+            <div className='card bg-base-100 shadow-xl overflow-hidden h-full'>
               <figure className='relative h-64'>
                 <Image
                   src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop'
@@ -80,9 +80,18 @@ export default function ServicesPage() {
                   </h3>
                 </div>
               </figure>
-              <div className='card-body'>
+              <div className='card-body flex flex-col h-full'>
                 <div className='divider my-0 mt-1'></div>
-                <ul className='space-y-2 mb-4'>
+                <p className='mb-4 text-sm bg-base-200 p-3 rounded-lg border-l-4 border-primary'>
+                  <span className='font-bold text-primary'>
+                    The Charleston Wedding Band:
+                  </span>{' '}
+                  We also perform at weddings under this name, offering the same
+                  exceptional music and professional services. When you book
+                  DTSMB for your wedding, you&apos;re getting the elegance and
+                  sophistication of The Charleston Wedding Band.
+                </p>
+                <ul className='space-y-2 flex-grow'>
                   <li className='flex items-start'>
                     <span className='text-primary mr-2'>✓</span>
                     <span>Ceremony music</span>
@@ -104,7 +113,7 @@ export default function ServicesPage() {
                     <span>DJ services during band breaks</span>
                   </li>
                 </ul>
-                <div className='card-actions'>
+                <div className='card-actions mt-4'>
                   <a
                     href='#wedding-packages'
                     className='btn btn-primary w-full'
@@ -116,7 +125,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Corporate Card */}
-            <div className='card bg-base-100 shadow-xl overflow-hidden'>
+            <div className='card bg-base-100 shadow-xl overflow-hidden h-full'>
               <figure className='relative h-64'>
                 <Image
                   src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop'
@@ -131,9 +140,9 @@ export default function ServicesPage() {
                   </h3>
                 </div>
               </figure>
-              <div className='card-body'>
+              <div className='card-body flex flex-col h-full'>
                 <div className='divider my-0 mt-1'></div>
-                <ul className='space-y-2 mb-4'>
+                <ul className='space-y-2 flex-grow'>
                   <li className='flex items-start'>
                     <span className='text-primary mr-2'>✓</span>
                     <span>Holiday parties & celebrations</span>
@@ -155,7 +164,7 @@ export default function ServicesPage() {
                     <span>Professional sound & lighting</span>
                   </li>
                 </ul>
-                <div className='card-actions'>
+                <div className='card-actions mt-4'>
                   <a
                     href='#corporate-packages'
                     className='btn btn-primary w-full'
@@ -167,7 +176,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Private Parties Card */}
-            <div className='card bg-base-100 shadow-xl overflow-hidden'>
+            <div className='card bg-base-100 shadow-xl overflow-hidden h-full'>
               <figure className='relative h-64'>
                 <Image
                   src='https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2070&auto=format&fit=crop'
@@ -182,9 +191,9 @@ export default function ServicesPage() {
                   </h3>
                 </div>
               </figure>
-              <div className='card-body'>
+              <div className='card-body flex flex-col h-full'>
                 <div className='divider my-0 mt-1'></div>
-                <ul className='space-y-2 mb-4'>
+                <ul className='space-y-2 flex-grow'>
                   <li className='flex items-start'>
                     <span className='text-primary mr-2'>✓</span>
                     <span>Birthday & anniversary celebrations</span>
@@ -206,7 +215,7 @@ export default function ServicesPage() {
                     <span>Themed parties & special occasions</span>
                   </li>
                 </ul>
-                <div className='card-actions'>
+                <div className='card-actions mt-4'>
                   <a
                     href='#private-packages'
                     className='btn btn-primary w-full'
