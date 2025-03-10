@@ -252,8 +252,7 @@ export default function ContactForm() {
           ></textarea>
           <label className='label'>
             <span className='label-text-alt text-base-content/70'>
-              Please include any important details that will help us prepare for
-              your event.
+              Please include any important details
             </span>
           </label>
         </div>
