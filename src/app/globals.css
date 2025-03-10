@@ -73,3 +73,23 @@ section {
     transition: none !important;
   }
 }
+
+/* Add this to fix mobile text rendering */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Improve mobile text rendering */
+  body {
+    @apply text-base font-normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Ensure buttons have readable text on all devices */
+  .btn {
+    @apply font-medium;
+  }
+}

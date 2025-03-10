@@ -3,7 +3,7 @@ import ContactForm from '@/components/ContactForm'
 import { MAIN_EMAIL } from '@/utils/env'
 
 export const metadata = {
-  title: 'Contact Us | DTSMB',
+  title: 'DTSMB | Contact Us',
   description:
     'Contact Dans Tramp Stamp and the Money Bags to book your event or inquire about our services.',
 }
