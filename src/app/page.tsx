@@ -1,18 +1,13 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+
+export const metadata = {
+  title: 'Home | DTSMB',
+  description:
+    'DTSMB is a professional cover band for weddings, corporate events, private parties, and bars.',
+}
 
 export default function Home() {
-  const [hydrated, setHydrated] = useState(false)
-
-  useEffect(() => {
-    setHydrated(true)
-  }, [])
-
-  if (!hydrated) return null // Prevents hydration mismatch issues
-
   return (
     <main className='scroll-smooth'>
       {/* Hero Section */}
@@ -23,7 +18,7 @@ export default function Home() {
               Dans Tramp Stamp{' '}
               <span className='block md:inline'>&amp; the Money Bags</span>
             </h1>
-            <p className='text-xl md:text-2xl mb-10 text-base-100'>
+            <p className='text-xl md:text-2xl mb-10 text-base-100 font-medium'>
               Professional cover band for weddings, corporate events, private
               parties, and bars.
             </p>
@@ -33,7 +28,7 @@ export default function Home() {
               </Link>
               <Link
                 href='/services'
-                className='btn btn-outline btn-lg border-base-100 text-base-100 hover:bg-base-100 hover:text-primary'
+                className='btn btn-outline btn-lg border-base-100 text-base-100 hover:bg-base-100 hover:text-primary font-medium'
               >
                 Our Services
               </Link>
@@ -71,7 +66,9 @@ export default function Home() {
             <h2 className='text-3xl md:text-4xl font-serif font-bold text-neutral'>
               Our Services
             </h2>
-            <p className='text-xl mt-4'>Book us for your next event</p>
+            <p className='text-xl mt-4 text-neutral font-medium'>
+              Book us for your next event
+            </p>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
@@ -132,7 +129,7 @@ export default function Home() {
                   Proud recipients of the WeddingWire Couples&apos; Choice Award
                   two years in a row!
                 </p>
-                <p className='mb-6 text-base-content/80'>
+                <p className='mb-6 text-base-content font-normal'>
                   This prestigious award recognizes the top wedding
                   professionals for excellence in quality, service,
                   responsiveness, and professionalism—as determined by reviews

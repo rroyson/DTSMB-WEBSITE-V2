@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 export const metadata = {
-  title: 'Services & Pricing | DTSMB',
+  title: 'DTSMB | Services & Pricing',
   description:
     'Professional band services for weddings, corporate events, private parties, and bars. View our packages and pricing.',
 }
