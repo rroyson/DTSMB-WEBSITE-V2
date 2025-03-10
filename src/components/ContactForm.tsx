@@ -1,10 +1,17 @@
 'use client'
 
 import { useState } from 'react'
+import { PUBLIC_ENV } from '@/utils/env'
+
+// For debugging - let's see what's actually available
+console.log('PUBLIC_ENV in ContactForm:', PUBLIC_ENV)
+console.log('Direct env access in client:', process.env.NEXT_PUBLIC_MAIN_EMAIL)
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [debugMode, setDebugMode] = useState(false)
+  const [apiStatus, setApiStatus] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,10 +39,14 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setApiStatus(null)
 
     try {
+      // Use the test endpoint in debug mode
+      const endpoint = debugMode ? '/api/test' : '/api/send-email'
+
       // Make API call to send email
-      const response = await fetch('/api/send-email', {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,11 +54,21 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       })
 
-      const data = await response.json()
-
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to send inquiry')
+        const errorText = await response.text()
+        console.error('Error response:', errorText)
+        setApiStatus(
+          `Error: ${response.status} - ${errorText.substring(0, 100)}${
+            errorText.length > 100 ? '...' : ''
+          }`
+        )
+        throw new Error(`Server error: ${response.status}`)
       }
+
+      // Process successful response
+      const data = await response.json()
+      console.log('API response:', data)
+      setApiStatus(`Success: ${JSON.stringify(data).substring(0, 100)}...`)
 
       // Show success state
       setShowSuccess(true)
@@ -69,7 +90,6 @@ export default function ContactForm() {
     } catch (error) {
       console.error('Error submitting form:', error)
       setIsSubmitting(false)
-      // Here you could add error state handling to show error messages
     }
   }
 
@@ -127,10 +147,10 @@ export default function ContactForm() {
         Fill out the form below and we&apos;ll get back to you within 24 hours.
         You can also email us directly at{' '}
         <a
-          href='mailto:frontiersons@gmail.com'
+          href={`mailto:${PUBLIC_ENV.MAIN_EMAIL}`}
           className='text-primary hover:underline'
         >
-          frontiersons@gmail.com
+          {PUBLIC_ENV.MAIN_EMAIL}
         </a>
         .
       </p>
@@ -268,7 +288,38 @@ export default function ContactForm() {
           We respect your privacy and will never share your information with
           third parties.
         </p>
+
+        <div className='mt-4 text-sm'>
+          <p>
+            If you&apos;re having trouble with the form, please email us
+            directly at{' '}
+            <a
+              href={`mailto:${PUBLIC_ENV.MAIN_EMAIL}`}
+              className='text-primary hover:underline'
+            >
+              {PUBLIC_ENV.MAIN_EMAIL}
+            </a>
+          </p>
+        </div>
       </form>
+
+      {/* Add debug toggle at the bottom of the form */}
+      <div className='mt-8 pt-4 border-t border-base-300 text-xs text-base-content/60'>
+        <label className='flex items-center justify-end cursor-pointer'>
+          <span className='mr-2'>Debug Mode</span>
+          <input
+            type='checkbox'
+            className='toggle toggle-xs'
+            checked={debugMode}
+            onChange={() => setDebugMode(!debugMode)}
+          />
+        </label>
+        {apiStatus && (
+          <div className='mt-2 p-2 bg-base-300 rounded text-xs overflow-auto max-h-24'>
+            <pre>{apiStatus}</pre>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
