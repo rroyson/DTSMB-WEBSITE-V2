@@ -210,7 +210,7 @@ export default function ContactPage() {
       </div>
 
       {/* FAQ Section */}
-      <section className='py-16 bg-base-200'>
+      <section className='text-info-content py-16 bg-base-200'>
         <div className='container mx-auto px-4'>
           <h2 className='text-3xl md:text-4xl font-serif font-bold mb-12 text-center'>
             Frequently Asked Questions
@@ -344,17 +344,35 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className='mt-8'>
-        <p className='mb-4'>
-          Prefer to reach out directly? Feel free to email us at{' '}
-          <a
-            href={`mailto:${MAIN_EMAIL}`}
-            className='text-primary hover:underline'
-          >
-            {MAIN_EMAIL}
-          </a>
-          .
-        </p>
+      <div className='bg-base-200 rounded-lg p-6 shadow-sm'>
+        <div className='flex flex-col gap-2'>
+          <div className='flex items-center gap-3'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-6 w-6 text-primary flex-shrink-0'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+              />
+            </svg>
+            <p className='text-base-content'>Prefer to reach out directly?</p>
+          </div>
+          <p className='text-base-content pl-9'>
+            Email us at{' '}
+            <a
+              href={`mailto:${MAIN_EMAIL}`}
+              className='text-primary font-medium hover:underline transition-colors'
+            >
+              {MAIN_EMAIL}
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   )
