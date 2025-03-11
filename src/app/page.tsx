@@ -38,7 +38,7 @@ export default function Home() {
           {/* Featured Image */}
           <div className='relative w-full h-[300px] md:h-[500px] rounded-box overflow-hidden shadow-2xl my-12'>
             <Image
-              src='/images/hero-band.jpg'
+              src='/images/dtsmb/wedding-couple.jpg'
               alt='Band performing on stage'
               fill
               priority
@@ -81,7 +81,7 @@ export default function Home() {
               },
               {
                 title: 'Corporate Events',
-                image: '/images/corporate.jpg',
+                image: '/images/dtsmb/jack-keys.jpg',
                 description:
                   'Impress your clients and energize your team with professional entertainment.',
               },

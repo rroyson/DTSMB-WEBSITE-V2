@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
+import YouTubePlayer from '@/components/YouTubePlayer'
 
 // Define types for gallery items
 type GalleryImage = {
@@ -18,6 +19,7 @@ type GalleryVideo = {
   id: number
   type: 'video'
   src: string
+  youtubeId: string
   thumbnail: string
   category: string
   description: string
@@ -62,15 +64,17 @@ const galleryItems: GalleryItem[] = [
   {
     id: 5,
     type: 'video',
-    src: 'https://www.youtube.com/embed/gDrDWqxz4rI', // Replace with your actual YouTube video ID
-    thumbnail: '/images/danny-singin.jpg', // Temporary placeholder - replace with actual video thumbnail
+    src: 'https://www.youtube.com/embed/6XW3ABv5P3c',
+    youtubeId: '6XW3ABv5P3c',
+    thumbnail: '/images/video-thumbnails/performance.jpg',
     category: 'live',
-    description: 'Official band promo video',
+    description: 'Live performance at Charleston Music Hall',
   },
   {
     id: 6,
     type: 'video',
     src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Replace with your actual YouTube video ID
+    youtubeId: 'dQw4w9WgXcQ',
     thumbnail: '/images/gallery-2.jpg', // Temporary placeholder - replace with actual video thumbnail
     category: 'photos',
     description: 'Behind the scenes at summer tour',
@@ -216,25 +220,12 @@ export default function GalleryPage() {
                       className='object-cover transition-transform duration-500 group-hover:scale-105'
                     />
                   ) : (
-                    <div className='relative w-full h-full'>
-                      <Image
-                        src={item.thumbnail}
-                        alt='Video thumbnail'
-                        fill
-                        sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-                        className='object-cover transition-transform duration-500 group-hover:scale-105'
+                    <div className='relative h-64 bg-base-200 overflow-hidden'>
+                      <YouTubePlayer
+                        videoId={item.youtubeId}
+                        thumbnail={item.thumbnail}
+                        height='100%'
                       />
-                      <div className='absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/30 transition-colors duration-300'>
-                        <div className='w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center text-primary-content transform group-hover:scale-110 transition-transform duration-300'>
-                          <svg
-                            className='w-8 h-8'
-                            fill='currentColor'
-                            viewBox='0 0 24 24'
-                          >
-                            <path d='M8 5v14l11-7z' />
-                          </svg>
-                        </div>
-                      </div>
                     </div>
                   )}
                 </div>
@@ -315,14 +306,16 @@ export default function GalleryPage() {
                           />
                         </div>
                       ) : (
-                        <div className='aspect-video'>
-                          <iframe
-                            src={item.src}
-                            className='w-full h-full'
-                            allowFullScreen
-                            title={item.description || 'Video'}
-                            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        <div className='w-full max-w-4xl mx-auto'>
+                          <YouTubePlayer
+                            videoId={(item as GalleryVideo).youtubeId}
+                            thumbnail={(item as GalleryVideo).thumbnail}
+                            height='500px'
+                            autoplay={true}
                           />
+                          <p className='mt-4 text-base-content'>
+                            {item.description}
+                          </p>
                         </div>
                       )}
                     </div>
