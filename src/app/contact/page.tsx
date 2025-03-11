@@ -61,7 +61,7 @@ export default function ContactPage() {
                     <div>
                       <h4 className='font-bold'>Phone</h4>
                       <p className='mb-1'>
-                        (888) 555-BAND{' '}
+                        (860) 729-3354{' '}
                         {/* Replace with your actual proxy number */}
                       </p>
                       <p className='text-sm text-gray-600'>
@@ -173,7 +173,7 @@ export default function ContactPage() {
                   </a>
                 </div>
 
-                <div>
+                {/* <div>
                   <h3 className='text-2xl font-serif font-bold mb-4'>
                     Upcoming Shows
                   </h3>
@@ -202,7 +202,7 @@ export default function ContactPage() {
                       View All Shows
                     </a>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -224,11 +224,11 @@ export default function ContactPage() {
               </div>
               <div className='collapse-content'>
                 <p>
-                  We recommend booking at least 3-6 months in advance for
+                  We recommend booking at least 6-12 months in advance for
                   weddings and large events, especially during peak season
-                  (May-October). For smaller events or off-peak dates, 1-2
-                  months notice is usually sufficient, but availability
-                  can&apos;t be guaranteed with short notice.
+                  (March-May, September-November). For smaller events or
+                  off-peak dates, 1-2 months notice is usually sufficient, but
+                  availability can&apos;t be guaranteed with short notice.
                 </p>
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function ContactPage() {
                 <p>
                   Yes, we require a 50% non-refundable deposit to secure your
                   date, with the remaining balance due 14 days before the event.
-                  For bookings made less than 30 days before the event, full
+                  For bookings made less than 90 days before the event, full
                   payment is required.
                 </p>
               </div>
@@ -255,7 +255,7 @@ export default function ContactPage() {
               </div>
               <div className='collapse-content'>
                 <p>
-                  Our standard packages include 3-4 hours of performance time,
+                  Our standard packages include 2-4 hours of performance time,
                   typically divided into 45-minute sets with short breaks in
                   between. We&apos;re happy to discuss extended hours for an
                   additional fee.
@@ -297,7 +297,7 @@ export default function ContactPage() {
             <div className='collapse collapse-plus bg-base-100'>
               <input type='radio' name='faq-accordion' />
               <div className='collapse-title text-xl font-medium'>
-                What is The Charleston Wedding Band?
+                What is The Charleston Wedding Band + DTSMB?
               </div>
               <div className='collapse-content'>
                 <p>
@@ -324,15 +324,10 @@ export default function ContactPage() {
             Complete our form above or reach out directly. We can&apos;t wait to
             be part of your special day!
           </p>
-          <p className='mb-6 text-white/90 max-w-2xl mx-auto'>
-            <span className='font-bold'>Planning a wedding?</span> We also
-            perform as{' '}
-            <span className='font-bold'>The Charleston Wedding Band</span> -
-            same exceptional musicians, perfect for your elegant celebration.
-          </p>
+
           <div className='flex flex-col sm:flex-row justify-center gap-4'>
             <a href='tel:+15551234567' className='btn btn-lg btn-secondary'>
-              Call (555) 123-4567
+              Call (860) 729-3354
             </a>
             <a
               href={`mailto:${MAIN_EMAIL}`}

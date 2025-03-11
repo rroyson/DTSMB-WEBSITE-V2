@@ -17,8 +17,8 @@ export default function Navbar() {
         <div className='flex justify-between items-center'>
           <div className='flex items-center'>
             <Link href='/' className='flex items-center'>
-              <h1 className='text-2xl md:text-3xl font-serif text-primary hover:text-primary-focus'>
-                DTSMB
+              <h1 className='text-2xl md:text-2xl font-serif text-primary hover:text-primary-focus'>
+                The Charleston Wedding Band
               </h1>
             </Link>
           </div>

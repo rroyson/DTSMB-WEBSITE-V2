@@ -15,7 +15,6 @@ const config = {
     },
   },
   plugins: [],
-  // daisyUI v5 is now configured in css file
 } as Config
 
 export default config

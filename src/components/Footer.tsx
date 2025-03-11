@@ -10,22 +10,15 @@ export default function Footer() {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
           <div>
             <h2 className='text-2xl font-serif text-neutral-content mb-4'>
-              DTSMB
+              The Charleston Wedding Band
             </h2>
             <p className='mb-4 text-neutral-content'>
-              Dans Tramp Stamp and the Money Bags - Professional live music for
-              all occasions.
+              Two band names, one purpose - exceptional live music for all
+              occasions
             </p>
             <p className='mb-4 text-neutral-content'>
-              Bringing the party to your weddings, corporate events, and private
-              parties.
-            </p>
-            <p className='text-sm text-neutral-content/80 border-l-2 border-primary pl-3'>
-              Also booking as{' '}
-              <span className='text-primary-content'>
-                The Charleston Wedding Band
-              </span>{' '}
-              for wedding events.
+              Bringing unforgettable performances to weddings, corporate events,
+              private parties, and top venues along the East Coast since 2010.
             </p>
           </div>
 
@@ -64,7 +57,7 @@ export default function Footer() {
             <p className='mb-2 text-neutral-content'>
               Email: {PUBLIC_ENV.MAIN_EMAIL}
             </p>
-            <p className='mb-1 text-neutral-content'>(888) 555-BAND</p>
+            <p className='mb-1 text-neutral-content'>(860) 729-3354</p>
             <p className='mb-4 text-sm text-neutral-content/80'>
               Call or text us anytime
             </p>
@@ -112,9 +105,10 @@ export default function Footer() {
 
         <div className='mt-12 pt-8 border-t border-neutral-content/20 text-center'>
           <p className='text-neutral-content'>
-            &copy; {currentYear} Dans Tramp Stamp and the Money Bags. All rights
-            reserved.
+            &copy; {currentYear} Dans Tramp Stamp and the Money Bags & The
+            Charleston Wedding Band.
           </p>
+          <span>All rights reserved.</span>
         </div>
       </div>
     </footer>
