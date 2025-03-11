@@ -48,25 +48,33 @@ export default function Home() {
 
         <div className='container mx-auto px-4 relative z-10'>
           <div className='flex flex-col md:flex-row items-center gap-8 md:gap-12 md:items-start'>
-            {/* Text content - modernized */}
             <div className='md:w-1/2 text-center md:text-left'>
               <div className='relative inline-block mb-2'>
                 <span className='text-primary-content/80 tracking-wide font-mono text-sm uppercase relative z-10'>
-                  Live Music Performance
+                  Get Ready to Party!
                 </span>
                 <div className='absolute bottom-0 left-0 h-3 w-full bg-accent/30 -skew-x-12'></div>
               </div>
 
               <h1 className='text-4xl md:text-6xl font-serif mb-6 text-primary-content leading-tight'>
-                Dans Tramp Stamp{' '}
+                The Charleston{' '}
                 <span className='block md:inline transform transition-transform hover:translate-x-2'>
-                  &amp; the Money Bags
+                  Wedding Band{' '}
                 </span>
+                <div className='inline-flex items-center'>
+                  <span className='inline-block text-primary-content opacity-50 mr-2'>
+                    +
+                  </span>
+                  <span className='inline-flex items-center justify-center bg-accent/80 text-accent-content/90 px-3 py-1 rounded-md transform -rotate-3 hover:rotate-0 transition-transform duration-300 shadow-sm relative text-2xl md:text-3xl'>
+                    <span className='absolute inset-0 border border-accent-content/20 rounded-md transform rotate-1'></span>
+                    <span className='font-semibold tracking-wider'>DTSMB</span>
+                  </span>
+                </div>
               </h1>
 
               <p className='text-xl md:text-2xl mb-10 text-primary-content/90 max-w-xl'>
                 Professional cover band for weddings, corporate events, private
-                parties, and bars.
+                parties, and venues.
               </p>
 
               <div className='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'>
