@@ -34,7 +34,7 @@ export default function ContactPage() {
 
       <div className='py-16 bg-base-100'>
         <div className='container mx-auto px-4'>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
+          <div className='text-info-content grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
             {/* Contact Form */}
             <div className='order-2 lg:order-1'>
               <ContactForm />

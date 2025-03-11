@@ -143,7 +143,7 @@ export default function GalleryPage() {
       >
         <div className='text-center mb-12'>
           <motion.h1
-            className='text-4xl md:text-5xl font-serif font-bold mb-4'
+            className='text-base-content text-4xl md:text-5xl font-serif font-bold mb-4'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -260,7 +260,7 @@ export default function GalleryPage() {
         </div>
 
         {/* Add link to more videos */}
-        <div className='text-center mt-12'>
+        <div className='text-info-content text-center mt-12'>
           <a
             href='https://www.youtube.com/@dtsmb5919'
             target='_blank'

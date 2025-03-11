@@ -37,7 +37,7 @@ export default function ServicesPage() {
             <h2 className='text-3xl md:text-4xl font-serif font-bold mb-6 text-primary'>
               How We Can Make Your Event Special
             </h2>
-            <p className='text-lg mb-8'>
+            <p className='text-info-content text-lg mb-8'>
               Dans Tramp Stamp &amp; the Money Bags (DTSMB) brings professional,
               high-energy performances to make your event unforgettable. With
               our extensive repertoire spanning multiple decades and genres, we
@@ -48,7 +48,7 @@ export default function ServicesPage() {
               <a href='#packages' className='btn btn-primary'>
                 View Packages
               </a>
-              <a href='/contact' className='btn btn-outline'>
+              <a href='/contact' className='btn btn-soft'>
                 Contact Us
               </a>
             </div>
@@ -59,7 +59,7 @@ export default function ServicesPage() {
       {/* Service types section */}
       <section className='py-16 bg-base-200'>
         <div className='container mx-auto px-4'>
-          <h2 className='text-3xl md:text-4xl font-serif font-bold mb-12 text-center'>
+          <h2 className='text-primary text-3xl md:text-4xl font-serif font-bold mb-12 text-center'>
             Our Specialty Events
           </h2>
 
@@ -82,7 +82,7 @@ export default function ServicesPage() {
               </figure>
               <div className='card-body flex flex-col h-full'>
                 <div className='divider my-0 mt-1'></div>
-                <p className='mb-4 text-sm bg-base-200 p-3 rounded-lg border-l-4 border-primary'>
+                <p className='text-info-content mb-4 text-sm bg-base-200 p-3 rounded-lg border-l-4 border-primary'>
                   <span className='font-bold text-primary'>
                     The Charleston Wedding Band:
                   </span>{' '}
@@ -91,7 +91,7 @@ export default function ServicesPage() {
                   DTSMB for your wedding, you&apos;re getting the elegance and
                   sophistication of The Charleston Wedding Band.
                 </p>
-                <ul className='space-y-2 flex-grow'>
+                <ul className='text-info-content space-y-2 flex-grow'>
                   <li className='flex items-start'>
                     <span className='text-primary mr-2'>✓</span>
                     <span>Ceremony music</span>
@@ -142,7 +142,7 @@ export default function ServicesPage() {
               </figure>
               <div className='card-body flex flex-col h-full'>
                 <div className='divider my-0 mt-1'></div>
-                <ul className='space-y-2 flex-grow'>
+                <ul className='text-info-content space-y-2 flex-grow'>
                   <li className='flex items-start'>
                     <span className='text-primary mr-2'>✓</span>
                     <span>Holiday parties & celebrations</span>
@@ -193,7 +193,7 @@ export default function ServicesPage() {
               </figure>
               <div className='card-body flex flex-col h-full'>
                 <div className='divider my-0 mt-1'></div>
-                <ul className='space-y-2 flex-grow'>
+                <ul className='text-info-content space-y-2 flex-grow'>
                   <li className='flex items-start'>
                     <span className='text-primary mr-2'>✓</span>
                     <span>Birthday & anniversary celebrations</span>
@@ -232,17 +232,17 @@ export default function ServicesPage() {
       {/* Packages section */}
       <section id='packages' className='py-16 bg-base-100'>
         <div className='container mx-auto px-4'>
-          <h2 className='text-3xl md:text-4xl font-serif font-bold mb-12 text-center'>
+          <h2 className='text-primary text-3xl md:text-4xl font-serif font-bold mb-12 text-center'>
             Our Packages & Pricing
           </h2>
 
           {/* Wedding Packages */}
           <div id='wedding-packages' className='mb-20'>
-            <h3 className='text-2xl md:text-3xl font-serif font-bold mb-8 text-primary'>
+            <h3 className='text-2xl md:text-3xl font-serif font-bold mb-8 text-info-content'>
               Wedding Packages
             </h3>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+            <div className='text-info-content grid grid-cols-1 md:grid-cols-3 gap-8'>
               {/* Standard Package */}
               <div className='card bg-base-200 shadow-xl h-full'>
                 <div className='card-body flex flex-col justify-between'>
@@ -381,12 +381,12 @@ export default function ServicesPage() {
           </div>
 
           {/* Corporate Packages */}
-          <div id='corporate-packages' className='mb-20'>
-            <h3 className='text-2xl md:text-3xl font-serif font-bold mb-8 text-primary'>
+          <div id='corporate-packages' className='text-info-content mb-20'>
+            <h3 className='text-2xl md:text-3xl font-serif font-bold mb-8 '>
               Corporate Packages
             </h3>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+            <div className='text-info-content grid grid-cols-1 md:grid-cols-3 gap-8'>
               {/* Basic Package */}
               <div className='card bg-base-200 shadow-xl h-full'>
                 <div className='card-body flex flex-col justify-between'>
@@ -516,11 +516,11 @@ export default function ServicesPage() {
 
           {/* Private Event Packages */}
           <div id='private-packages'>
-            <h3 className='text-2xl md:text-3xl font-serif font-bold mb-8 text-primary'>
+            <h3 className='text-2xl md:text-3xl font-serif font-bold mb-8 text-info-content'>
               Private Event Packages
             </h3>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+            <div className='text-info-content grid grid-cols-1 md:grid-cols-3 gap-8'>
               {/* Basic Package */}
               <div className='card bg-base-200 shadow-xl h-full'>
                 <div className='card-body flex flex-col justify-between'>
@@ -655,7 +655,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Additional services */}
-      <section className='py-16 bg-base-200'>
+      <section className='text-info-content py-16 bg-base-200'>
         <div className='container mx-auto px-4'>
           <h2 className='text-3xl md:text-4xl font-serif font-bold mb-12 text-center'>
             Additional Services

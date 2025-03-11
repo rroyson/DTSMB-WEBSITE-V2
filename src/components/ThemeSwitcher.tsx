@@ -57,7 +57,7 @@ export default function ThemeSwitcher() {
     <div className='relative'>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className='btn btn-sm btn-ghost gap-1 normal-case'
+        className='btn btn-sm btn-primary-content gap-1 normal-case'
       >
         <svg
           width='20'
