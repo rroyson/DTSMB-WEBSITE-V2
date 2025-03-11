@@ -35,14 +35,19 @@ export default function ServicesPage() {
         <div className='container mx-auto px-4'>
           <div className='max-w-3xl mx-auto text-center'>
             <h2 className='text-3xl md:text-4xl font-serif font-bold mb-6 text-primary'>
-              How We Can Make Your Event Special
+              One Band, Two Styles—seamlessly tailored to your event.
             </h2>
             <p className='text-info-content text-lg mb-8'>
-              The Charleston Wedding Band and DTSMB bring professional,
-              high-energy performances to make your event unforgettable. With
-              our extensive repertoire spanning multiple decades and genres, we
-              customize our setlist to perfectly match your event&apos;s vibe
-              and your guests&apos; preferences.
+              <span className='text-secondary'>
+                {' '}
+                The Charleston Wedding Band{' '}
+              </span>
+              and <span className='text-secondary'>DTSMB</span> bring
+              professional, high-energy performances to make your event
+              unforgettable. Whether you need an elegant wedding band or a
+              high-energy party band, we bring the same top-tier musicianship,
+              diverse setlist, and unforgettable performances to match your
+              celebration&apos;s vibe.
             </p>
             <div className='flex flex-col sm:flex-row justify-center gap-4'>
               <a href='#packages' className='btn btn-primary'>
