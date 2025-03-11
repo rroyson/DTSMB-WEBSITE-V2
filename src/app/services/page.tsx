@@ -310,9 +310,7 @@ export default function ServicesPage() {
                     <ul className='space-y-3 mb-6 min-h-[220px]'>
                       <li className='flex items-start'>
                         <span className='opacity-90 mr-2'>✓</span>
-                        <span>
-                          Up to 2.5 hours of live music - 4 Piece Band
-                        </span>
+                        <span>Up to 3 hours of live music - 4 Piece Band</span>
                       </li>
                       <li className='flex items-start'>
                         <span className='opacity-90 mr-2'>✓</span>
@@ -359,7 +357,7 @@ export default function ServicesPage() {
                     <ul className='space-y-3 mb-6 min-h-[220px]'>
                       <li className='flex items-start'>
                         <span className='opacity-90 mr-2'>✓</span>
-                        <span>Up to 3 hours of live music - 4 Piece Band</span>
+                        <span>Up to 4 hours of live music - 4 Piece Band</span>
                       </li>
                       <li className='flex items-start'>
                         <span className='opacity-90 mr-2'>✓</span>
@@ -388,7 +386,7 @@ export default function ServicesPage() {
                       <li className='flex items-start'>
                         <span className='opacity-90 mr-2'>✓</span>
                         <span>
-                          Additional members - Keyboard, Saxophone or Acoustic
+                          Additional member - Keyboard, Saxophone or Acoustic
                           Guitar
                         </span>
                       </li>
@@ -421,13 +419,12 @@ export default function ServicesPage() {
               <div className='card-body text-center'>
                 <div className='text-4xl mb-4'>🎤</div>
                 <h3 className='card-title justify-center text-xl mb-2'>
-                  Solo Performer
+                  Duo Performance
                 </h3>
                 <p>
                   Acoustic guitarist/vocalist for intimate gatherings or
                   ceremony music.
                 </p>
-                <div className='mt-4 font-semibold'>From $500</div>
               </div>
             </div>
 
@@ -435,13 +432,12 @@ export default function ServicesPage() {
               <div className='card-body text-center'>
                 <div className='text-4xl mb-4'>🎧</div>
                 <h3 className='card-title justify-center text-xl mb-2'>
-                  DJ Services
+                  Recording Services
                 </h3>
                 <p>
-                  Professional DJ to keep the party going during band breaks or
-                  after-hours.
+                  Professional recording services to capture your event. This
+                  can include ceremony, cocktail hour, dinner, and more.
                 </p>
-                <div className='mt-4 font-semibold'>From $600</div>
               </div>
             </div>
 
@@ -449,13 +445,12 @@ export default function ServicesPage() {
               <div className='card-body text-center'>
                 <div className='text-4xl mb-4'>💡</div>
                 <h3 className='card-title justify-center text-xl mb-2'>
-                  Enhanced Lighting
+                  Venue Lighting
                 </h3>
                 <p>
-                  Premium lighting packages to create the perfect atmosphere for
-                  your event.
+                  Premium lighting packages, including uplighting and dance
+                  floor effects, to set the perfect atmosphere.
                 </p>
-                <div className='mt-4 font-semibold'>From $400</div>
               </div>
             </div>
 
@@ -469,7 +464,6 @@ export default function ServicesPage() {
                   Custom arrangement of special songs not in our regular
                   repertoire.
                 </p>
-                <div className='mt-4 font-semibold'>From $300/song</div>
               </div>
             </div>
           </div>
@@ -494,7 +488,7 @@ export default function ServicesPage() {
               href='tel:+15551234567'
               className='btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-primary'
             >
-              Call (555) 123-4567
+              Call (860) 729-3354
             </a>
           </div>
         </div>
