@@ -64,17 +64,41 @@ const config = {
           warning: '#f59e0b',
           error: '#ef4444',
         },
+        dtsmbDark: {
+          primary: '#60a5fa', // Lighter blue for dark mode
+          secondary: '#a78bfa', // Lighter purple for dark mode
+          accent: '#fbbf24', // Slightly brighter amber for visibility
+          neutral: '#1e293b', // Soft dark blue-gray
+
+          // Soft dark background gradient (not pure black)
+          'base-100': '#1e293b', // Soft navy blue-gray
+          'base-200': '#293548', // Slightly lighter blue-gray
+          'base-300': '#334155', // Even lighter for contrast elements
+
+          // High contrast text for readability
+          'base-content': '#e2e8f0', // Light gray with slight blue tint
+          'primary-content': '#ffffff',
+          'secondary-content': '#ffffff',
+          'accent-content': '#1e293b',
+
+          // Information colors
+          'info-content': '#cbd5e1', // Very readable muted white
+          info: '#38bdf8',
+          success: '#34d399',
+          warning: '#fbbf24',
+          error: '#f87171',
+        },
       },
       'light',
       'emerald',
       'cmyk',
     ],
-    darkTheme: 'dtsmb',
+    darkTheme: 'dtsmbDark',
     base: true,
     styled: true,
     utils: true,
     prefix: '',
-    logs: true,
+    logs: false,
   },
 }
 
