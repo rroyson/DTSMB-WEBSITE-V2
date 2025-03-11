@@ -10,52 +10,170 @@ export const metadata = {
 export default function Home() {
   return (
     <main className='scroll-smooth'>
-      {/* Hero Section */}
-      <section className='bg-gradient-to-br from-primary to-secondary py-16 md:py-24'>
-        <div className='container mx-auto px-4'>
-          <div className='text-center max-w-4xl mx-auto'>
-            <h1 className='text-4xl md:text-6xl font-serif mb-6 text-primary-content'>
-              Dans Tramp Stamp{' '}
-              <span className='block md:inline'>&amp; the Money Bags</span>
-            </h1>
-            <p className='text-xl md:text-2xl mb-10 text-primary-content'>
-              Professional cover band for weddings, corporate events, private
-              parties, and bars.
-            </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center mb-10'>
-              <Link href='/contact' className='btn btn-primary btn-lg'>
-                Book Now
-              </Link>
-              <Link
-                href='/services'
-                className='btn btn-outline btn-lg text-primary-content hover:bg-primary-content hover:text-primary'
+      {/* Hero Section - balanced modern design with image blending (no play button) */}
+      <section className='relative bg-gradient-to-br from-primary to-secondary py-16 md:py-24 overflow-hidden'>
+        {/* Background texture overlay */}
+        <div className='absolute inset-0 opacity-15 mix-blend-overlay'>
+          <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'>
+            <defs>
+              <pattern
+                id='diagonalHatch'
+                width='10'
+                height='10'
+                patternTransform='rotate(45 0 0)'
+                patternUnits='userSpaceOnUse'
               >
-                Our Services
-              </Link>
-            </div>
-          </div>
+                <line
+                  x1='0'
+                  y1='0'
+                  x2='0'
+                  y2='10'
+                  style={{ stroke: 'white', strokeWidth: 1 }}
+                />
+              </pattern>
+            </defs>
+            <rect width='100%' height='100%' fill='url(#diagonalHatch)' />
+          </svg>
+        </div>
 
-          {/* Featured Image */}
-          <div className='relative w-full h-[300px] md:h-[500px] rounded-box overflow-hidden shadow-2xl my-12'>
-            <Image
-              src='/images/dtsmb/wedding-couple.jpg'
-              alt='Band performing on stage'
-              fill
-              priority
-              className='object-cover'
-              sizes='(max-width: 768px) 100vw, 1200px'
-            />
-            <div className='absolute inset-0 bg-gradient-to-t from-neutral to-transparent flex items-end'>
-              <div className='p-6'>
-                <h2 className='text-2xl md:text-3xl text-neutral-content'>
-                  Unforgettable Performances
-                </h2>
-                <p className='text-lg text-neutral-content/90'>
-                  Creating memories that last a lifetime
-                </p>
+        {/* Subtle animated elements */}
+        <div
+          className='absolute w-64 h-64 rounded-full bg-primary/20 blur-3xl top-20 -left-20 animate-pulse'
+          style={{ animationDuration: '8s' }}
+        ></div>
+        <div
+          className='absolute w-64 h-64 rounded-full bg-secondary/20 blur-3xl bottom-10 -right-20 animate-pulse'
+          style={{ animationDuration: '10s' }}
+        ></div>
+
+        <div className='container mx-auto px-4 relative z-10'>
+          <div className='flex flex-col md:flex-row items-center gap-8 md:gap-12'>
+            {/* Text content - modernized */}
+            <div className='md:w-1/2 text-center md:text-left'>
+              <div className='relative inline-block mb-2'>
+                <span className='text-primary-content/80 tracking-wide font-mono text-sm uppercase relative z-10'>
+                  Live Music Performance
+                </span>
+                <div className='absolute bottom-0 left-0 h-3 w-full bg-accent/30 -skew-x-12'></div>
+              </div>
+
+              <h1 className='text-4xl md:text-6xl font-serif mb-6 text-primary-content leading-tight'>
+                Dans Tramp Stamp{' '}
+                <span className='block md:inline transform transition-transform hover:translate-x-2'>
+                  &amp; the Money Bags
+                </span>
+              </h1>
+
+              <p className='text-xl md:text-2xl mb-10 text-primary-content/90 max-w-xl'>
+                Professional cover band for weddings, corporate events, private
+                parties, and bars.
+              </p>
+
+              <div className='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'>
+                <Link
+                  href='/contact'
+                  className='btn btn-primary btn-lg relative overflow-hidden group'
+                >
+                  <span className='absolute inset-0 w-0 bg-white/20 transition-all duration-300 ease-out group-hover:w-full'></span>
+                  <span className='relative'>Book Now</span>
+                </Link>
+                <Link
+                  href='/services'
+                  className='btn btn-outline btn-lg text-primary-content border-primary-content group'
+                >
+                  <span className='flex items-center gap-2'>
+                    Our Services
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                      className='w-4 h-4 transform group-hover:translate-x-1 transition-transform'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M14 5l7 7m0 0l-7 7m7-7H3'
+                      />
+                    </svg>
+                  </span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Featured Image with blend effect (no play button) */}
+            <div className='md:w-1/2 mt-10 md:mt-0'>
+              <div className='relative'>
+                {/* Subtle border decoration */}
+                <div className='absolute -inset-3 border border-primary-content/20 rounded-xl -rotate-1'></div>
+
+                {/* Image container with blend modes */}
+                <div className='relative w-full h-[300px] md:h-[500px] rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.01] duration-500'>
+                  {/* Primary image with overlay blend */}
+                  <div className='absolute inset-0 mix-blend-overlay opacity-80'>
+                    <Image
+                      src='/images/dtsmb/wedding-couple.jpg'
+                      alt='Band performing on stage'
+                      fill
+                      priority
+                      className='object-cover'
+                      sizes='(max-width: 768px) 100vw, 50vw'
+                    />
+                  </div>
+
+                  {/* Secondary image with soft light blend */}
+                  <div className='absolute inset-0 mix-blend-soft-light'>
+                    <Image
+                      src='/images/dtsmb/wedding-couple.jpg'
+                      alt='Band performing on stage'
+                      fill
+                      priority
+                      className='object-cover'
+                      sizes='(max-width: 768px) 100vw, 50vw'
+                    />
+                  </div>
+
+                  {/* Gradient overlay */}
+                  <div className='absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30'></div>
+
+                  {/* Content overlay with glass effect */}
+                  <div className='absolute inset-0 bg-gradient-to-t from-neutral/70 to-transparent flex items-end'>
+                    <div className='p-6 w-full backdrop-blur-sm bg-neutral/10 rounded-b-xl'>
+                      <h2 className='text-2xl md:text-3xl text-neutral-content'>
+                        Unforgettable Performances
+                      </h2>
+                      <p className='text-lg text-neutral-content/90'>
+                        Creating memories that last a lifetime
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Decorative elements */}
+                <div className='absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-primary/30 blur-xl'></div>
+                <div className='absolute -top-6 -right-6 w-24 h-24 rounded-full bg-secondary/30 blur-xl'></div>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Subtle scroll indicator */}
+        <div className='absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce opacity-70'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            className='w-6 h-6 text-primary-content'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M19 14l-7 7m0 0l-7-7m7 7V3'
+            />
+          </svg>
         </div>
       </section>
 
