@@ -48,7 +48,6 @@ export default function Home() {
 
         <div className='container mx-auto px-4 relative z-10'>
           <div className='flex flex-col md:flex-row items-center gap-8 md:gap-12 md:items-start'>
-            {/* Text content - modernized */}
             <div className='md:w-1/2 text-center md:text-left'>
               <div className='relative inline-block mb-2'>
                 <span className='text-primary-content/80 tracking-wide font-mono text-sm uppercase relative z-10'>
@@ -62,9 +61,15 @@ export default function Home() {
                 <span className='block md:inline transform transition-transform hover:translate-x-2'>
                   Wedding Band{' '}
                 </span>
-                <span className='text-accent block md:inline transform transition-transform hover:translate-x-2'>
-                  + DTSMB
-                </span>
+                <div className='inline-flex items-center'>
+                  <span className='inline-block text-primary-content opacity-50 mr-2'>
+                    +
+                  </span>
+                  <span className='inline-flex items-center justify-center bg-accent text-accent-content/90 px-3 py-1 rounded-md transform -rotate-3 hover:rotate-0 transition-transform duration-300 shadow-sm relative text-2xl md:text-3xl'>
+                    <span className='absolute inset-0 border border-accent-content/20 rounded-md transform rotate-1'></span>
+                    <span className='font-semibold tracking-wider'>DTSMB</span>
+                  </span>
+                </div>
               </h1>
 
               <p className='text-xl md:text-2xl mb-10 text-primary-content/90 max-w-xl'>
