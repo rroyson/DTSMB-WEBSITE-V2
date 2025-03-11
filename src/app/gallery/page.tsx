@@ -3,97 +3,13 @@
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-
-// Define types for gallery items
-type GalleryImage = {
-  id: number
-  type: 'image'
-  src: string
-  alt: string
-  category: string
-  description: string
-}
-
-type GalleryVideo = {
-  id: number
-  type: 'video'
-  src: string
-  youtubeId: string
-  thumbnail: string
-  category: string
-  description: string
-}
-
-type GalleryItem = GalleryImage | GalleryVideo
-
-// Gallery items data
-const galleryItems: GalleryItem[] = [
-  {
-    id: 1,
-    type: 'image',
-    src: '/images/gallery-1.jpg',
-    alt: 'Band performance 1',
-    category: 'live',
-    description: 'Live performance at The Charleston Wedding',
-  },
-  {
-    id: 2,
-    type: 'image',
-    src: '/images/gallery-2.jpg',
-    alt: 'Band performance 2',
-    category: 'photos',
-    description: 'Corporate event at Charleston Harbor',
-  },
-  {
-    id: 3,
-    type: 'image',
-    src: '/images/gallery-3.jpg',
-    alt: 'Band performance 3',
-    category: 'live',
-    description: 'Wedding reception at Boone Hall Plantation',
-  },
-  {
-    id: 4,
-    type: 'image',
-    src: '/images/gallery-4.jpg',
-    alt: 'Band performance 4',
-    category: 'photos',
-    description: 'Private party downtown Charleston',
-  },
-  {
-    id: 5,
-    type: 'video',
-    src: '/videos/performance.mp4',
-    youtubeId: '6XW3ABv5P3c',
-    thumbnail: '/images/video-thumbnails/performance.jpg',
-    category: 'live',
-    description: 'Live performance at Commonhouse Aleworks',
-  },
-  {
-    id: 6,
-    type: 'video',
-    src: '/videos/performance.mp4',
-    youtubeId: 'gDrDWqxz4rI',
-    thumbnail: '/images/video-thumbnails/performance.jpg',
-    category: 'live',
-    description: 'Live performance at Pilots Cove Amphitheater',
-  },
-  {
-    id: 7,
-    type: 'video',
-    src: '/videos/behind-scenes.mp4',
-    youtubeId: 'dQw4w9WgXcQ',
-    thumbnail: '/images/gallery-2.jpg',
-    category: 'photos',
-    description: 'Behind the scenes at summer tour',
-  },
-]
+import { galleryItems } from './galleryItems'
 
 type Category = 'all' | 'live' | 'photos'
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('all')
-  const [selectedItem, setSelectedItem] = useState<number | null>(null)
+  const [selectedItem, setSelectedItem] = useState<string | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const modalRef = useRef<HTMLDivElement>(null)
 
