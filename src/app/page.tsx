@@ -10,8 +10,8 @@ export const metadata = {
 export default function Home() {
   return (
     <main className='scroll-smooth'>
-      {/* Hero Section - balanced modern design with image blending (no play button) */}
-      <section className='relative bg-gradient-to-br from-primary to-secondary py-16 md:py-24 overflow-hidden'>
+      {/* Hero Section with responsive layout */}
+      <section className='relative bg-gradient-to-br from-primary to-secondary py-12 md:py-24 overflow-hidden'>
         {/* Background texture overlay */}
         <div className='absolute inset-0 opacity-15 mix-blend-overlay'>
           <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'>
@@ -47,9 +47,10 @@ export default function Home() {
         ></div>
 
         <div className='container mx-auto px-4 relative z-10'>
-          <div className='flex flex-col md:flex-row items-center gap-8 md:gap-12'>
-            {/* Text content - modernized */}
-            <div className='md:w-1/2 text-center md:text-left'>
+          {/* Responsive container - stacked on mobile, side-by-side on desktop */}
+          <div className='flex flex-col md:flex-row md:items-center md:justify-between md:gap-12'>
+            {/* Text content - centered on mobile, left-aligned on desktop */}
+            <div className='text-center md:text-left md:w-1/2 mb-8 md:mb-0'>
               <div className='relative inline-block mb-2'>
                 <span className='text-primary-content/80 tracking-wide font-mono text-sm uppercase relative z-10'>
                   Live Music Performance
@@ -57,14 +58,14 @@ export default function Home() {
                 <div className='absolute bottom-0 left-0 h-3 w-full bg-accent/30 -skew-x-12'></div>
               </div>
 
-              <h1 className='text-4xl md:text-6xl font-serif mb-6 text-primary-content leading-tight'>
+              <h1 className='text-4xl md:text-6xl font-serif mb-4 text-primary-content leading-tight'>
                 Dans Tramp Stamp{' '}
                 <span className='block md:inline transform transition-transform hover:translate-x-2'>
                   &amp; the Money Bags
                 </span>
               </h1>
 
-              <p className='text-xl md:text-2xl mb-10 text-primary-content/90 max-w-xl'>
+              <p className='text-xl md:text-2xl mb-6 text-primary-content/90 max-w-xl mx-auto md:mx-0'>
                 Professional cover band for weddings, corporate events, private
                 parties, and bars.
               </p>
@@ -102,14 +103,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Featured Image with blend effect (no play button) */}
-            <div className='md:w-1/2 mt-10 md:mt-0'>
-              <div className='relative'>
+            {/* Featured Image - different sizing for mobile vs desktop */}
+            <div className='md:w-1/2'>
+              <div className='relative max-w-xl mx-auto md:mx-0 md:ml-auto'>
                 {/* Subtle border decoration */}
                 <div className='absolute -inset-3 border border-primary-content/20 rounded-xl -rotate-1'></div>
 
                 {/* Image container with blend modes */}
-                <div className='relative w-full h-[300px] md:h-[500px] rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.01] duration-500'>
+                <div className='relative w-full h-[350px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-lg'>
                   {/* Primary image with overlay blend */}
                   <div className='absolute inset-0 mix-blend-overlay opacity-80'>
                     <Image
@@ -139,11 +140,11 @@ export default function Home() {
 
                   {/* Content overlay with glass effect */}
                   <div className='absolute inset-0 bg-gradient-to-t from-neutral/70 to-transparent flex items-end'>
-                    <div className='p-6 w-full backdrop-blur-sm bg-neutral/10 rounded-b-xl'>
-                      <h2 className='text-2xl md:text-3xl text-neutral-content'>
+                    <div className='p-4 sm:p-6 w-full backdrop-blur-sm bg-neutral/10 rounded-b-xl'>
+                      <h2 className='text-xl sm:text-2xl md:text-3xl text-neutral-content'>
                         Unforgettable Performances
                       </h2>
-                      <p className='text-lg text-neutral-content/90'>
+                      <p className='text-sm sm:text-lg text-neutral-content/90'>
                         Creating memories that last a lifetime
                       </p>
                     </div>
