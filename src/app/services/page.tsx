@@ -12,7 +12,7 @@ export default function ServicesPage() {
       {/* Hero section */}
       <div className='relative h-[300px] md:h-[400px] overflow-hidden'>
         <Image
-          src='https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2070&auto=format&fit=crop'
+          src='/images/dtsmb/zach-singin.jpg'
           alt='Band performance'
           fill
           className='object-cover'
@@ -128,7 +128,7 @@ export default function ServicesPage() {
             <div className='card bg-base-100 shadow-xl overflow-hidden h-full'>
               <figure className='relative h-64'>
                 <Image
-                  src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop'
+                  src='/images/dtsmb/jack-keys.jpg'
                   alt='Corporate event'
                   fill
                   className='object-cover'
