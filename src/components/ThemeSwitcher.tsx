@@ -2,29 +2,15 @@
 
 import { useEffect, useState } from 'react'
 
-const themes = [
-  'light',
-  'emerald',
-  'forest',
-  'lofi',
-  'cmyk',
-  'autumn',
-  'business',
-  'acid',
-  'lemonade',
-  'night',
-  'coffee',
-  'winter',
-  'dtsmb',
-]
+const themes = ['light', 'emerald', 'cmyk']
 
 export default function ThemeSwitcher() {
-  const [theme, setTheme] = useState('dtsmb')
+  const [theme, setTheme] = useState('light')
   const [isOpen, setIsOpen] = useState(false)
 
   // Initialize theme from localStorage or default to 'dtsmb'
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'dtsmb'
+    const savedTheme = localStorage.getItem('theme') || 'light'
     setTheme(savedTheme)
     document.documentElement.setAttribute('data-theme', savedTheme)
   }, [])
@@ -70,7 +56,7 @@ export default function ThemeSwitcher() {
       </button>
 
       {isOpen && (
-        <div className='dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box max-h-96 h-[70vh] w-52 overflow-y-auto shadow-2xl mt-4 z-50 absolute top-10 right-0'>
+        <div className='dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box h-fit max-h-96 w-52 overflow-y-auto shadow-2xl mt-4 z-50 absolute top-10 right-0'>
           <div className='grid grid-cols-1 gap-3 p-3'>
             {themes.map((t) => (
               <button
