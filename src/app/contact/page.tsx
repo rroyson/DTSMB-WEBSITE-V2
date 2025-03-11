@@ -35,13 +35,13 @@ export default function ContactPage() {
       <div className='py-16 bg-base-100'>
         <div className='container mx-auto px-4'>
           <div className='text-info-content grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
-            {/* Contact Form */}
-            <div className='order-2 lg:order-1'>
+            {/* Contact Form - Now appears first on mobile */}
+            <div className='order-1 lg:order-1'>
               <ContactForm />
             </div>
 
-            {/* Contact Info */}
-            <div className='order-1 lg:order-2'>
+            {/* Contact Info - Now appears second on mobile */}
+            <div className='order-2 lg:order-2'>
               <div className='bg-base-200 p-8 rounded-xl shadow-lg mb-8'>
                 <h3 className='text-2xl font-serif font-bold mb-4'>
                   Contact Information
