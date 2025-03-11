@@ -26,15 +26,52 @@ const baseItems = [
     type: 'image' as const,
     src: '/images/dtsmb/zach-singin.jpg',
     alt: 'Zach singing during a performance',
-    category: 'photos', // Changed to photos
+    category: 'photos',
     description: 'Zach taking lead vocals during a crowd favorite',
+  },
+  {
+    type: 'image' as const,
+    src: '/images/dtsmb/danny-couple-black-n-white.jpg',
+    alt: 'Lowndes Grove',
+    category: 'photos',
+    description: 'Live performance at Lowndes Grove',
+  },
+  {
+    type: 'image' as const,
+    src: '/images/dtsmb/bar-cam.jpg',
+    alt: 'Cam Cockatil Club',
+    category: 'photos',
+    description: 'Cocktail Club Charleston',
+  },
+  {
+    type: 'image' as const,
+    src: '/images/dtsmb/band-black-n-white.jpg',
+    alt: 'Black and white photo of the band performing',
+    category: 'photos',
+    description: 'The full band in action - classic black and white shot',
+  },
+  {
+    type: 'video' as const,
+    src: '/videos/performance.mp4',
+    youtubeId: '6XW3ABv5P3c',
+    thumbnail: '/images/video-thumbnails/performance.jpg',
+    category: 'live',
+    description: 'Live performance at Commonhouse Aleworks',
   },
   {
     type: 'image' as const,
     src: '/images/dtsmb/bar-wide.jpg',
     alt: 'Wide shot of the band at a bar venue',
-    category: 'photos', // Changed to photos
+    category: 'photos',
     description: 'Full band setup during a lively bar performance',
+  },
+  {
+    type: 'video' as const,
+    src: '/videos/behind-scenes.mp4',
+    youtubeId: 'dQw4w9WgXcQ',
+    thumbnail: '/images/gallery-2.jpg',
+    category: 'live',
+    description: 'Behind the scenes at summer tour',
   },
   {
     type: 'image' as const,
@@ -44,6 +81,7 @@ const baseItems = [
     description:
       "Rob's intense focus captured in a striking black and white portrait",
   },
+
   {
     type: 'image' as const,
     src: '/images/dtsmb/danny-smile.jpg',
@@ -55,65 +93,52 @@ const baseItems = [
     type: 'image' as const,
     src: '/images/dtsmb/bar-rob-zach.jpg',
     alt: 'Rob and Zach performing at a bar',
-    category: 'photos', // Changed to photos
+    category: 'photos',
     description: 'Rob and Zach bringing down the house during a local gig',
   },
   {
     type: 'image' as const,
     src: '/images/dtsmb/wedding-couple.jpg',
     alt: 'Band performing with wedding couple',
-    category: 'photos', // Changed to photos
+    category: 'photos',
     description:
       'Creating magical moments for a newlywed couple at their reception',
   },
   {
     type: 'image' as const,
-    src: '/images/dtsmb/danny-couple-black-n-white.jpg',
-    alt: 'Lowndes Grove',
-    category: 'photos', // Changed to photos
-    description: 'Live performance at Lowndes Grove',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/dtsmb/jack-keys.jpg',
-    alt: 'Jack playing the keyboard',
-    category: 'photos', // Changed to photos
-    description: 'Jack laying down the perfect keys during a performance',
-  },
-  {
-    type: 'image' as const,
     src: '/images/dtsmb/zach-crowd-lg.jpg',
     alt: 'Zach performing with a large crowd',
-    category: 'photos', // Changed to photos
+    category: 'photos',
     description: 'Zach connecting with the crowd during a packed performance',
+  },
+  {
+    type: 'image' as const,
+    src: '/images/dtsmb/rob2.jpg',
+    alt: 'Rob portrait',
+    category: 'photos',
+    description: "Rob's charismatic personality shines through",
+  },
+  {
+    type: 'image' as const,
+    src: '/images/dtsmb/zach-guitar.jpg',
+    alt: 'Zach playing guitar',
+    category: 'photos',
+    description: 'Zach delivering amazing guitar work at a private event',
+  },
+
+  {
+    type: 'image' as const,
+    src: '/images/dtsmb/lownds-grove-band.jpg',
+    alt: 'The band performing at Lowndes Grove',
+    category: 'photos',
+    description: 'Live at the beautiful Lowndes Grove Plantation venue',
   },
   {
     type: 'image' as const,
     src: '/images/dtsmb/rob-guitar-1.jpg',
     alt: 'Rob playing guitar during a performance',
-    category: 'photos', // Changed to photos
+    category: 'photos',
     description: 'Rob shredding on guitar during a high-energy number',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/dtsmb/lownds-grove-band.jpg',
-    alt: 'The band performing at Lowndes Grove',
-    category: 'photos', // Changed to photos
-    description: 'Live at the beautiful Lowndes Grove Plantation venue',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/dtsmb/bar-cam.jpg',
-    alt: 'Cam Cockatil Club',
-    category: 'photos', // Changed to photos
-    description: 'Cocktail Club Charleston',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/dtsmb/band-black-n-white.jpg',
-    alt: 'Black and white photo of the band performing',
-    category: 'photos', // Changed to photos
-    description: 'The full band in action - classic black and white shot',
   },
   {
     type: 'image' as const,
@@ -127,7 +152,7 @@ const baseItems = [
     type: 'image' as const,
     src: '/images/dtsmb/bar-rob.jpg',
     alt: 'Rob performing at a bar',
-    category: 'photos', // Changed to photos
+    category: 'photos',
     description: 'Rob delivering an epic guitar solo at a downtown show',
   },
   {
@@ -141,40 +166,8 @@ const baseItems = [
     type: 'image' as const,
     src: '/images/dtsmb/danny-singin.jpg',
     alt: 'Danny singing during a performance',
-    category: 'photos', // Changed to photos
-    description: 'Danny captivating the audience with his vocals',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/dtsmb/rob2.jpg',
-    alt: 'Rob portrait',
     category: 'photos',
-    description: "Rob's charismatic personality shines through",
-  },
-  {
-    type: 'image' as const,
-    src: '/images/dtsmb/zach-guitar.jpg',
-    alt: 'Zach playing guitar',
-    category: 'photos', // Changed to photos
-    description: 'Zach delivering amazing guitar work at a private event',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/dtsmb/rap-god-black-n-white.jpg',
-    alt: 'Black and white photo of band member rapping',
-    category: 'photos', // Changed to photos
-    description:
-      'Dropping beats and rhymes - an epic moment captured in black and white',
-  },
-
-  // Videos - Kept at the end
-  {
-    type: 'video' as const,
-    src: '/videos/performance.mp4',
-    youtubeId: '6XW3ABv5P3c',
-    thumbnail: '/images/video-thumbnails/performance.jpg',
-    category: 'live', // Kept as live since it's a video
-    description: 'Live performance at Commonhouse Aleworks',
+    description: 'Danny captivating the audience with his vocals',
   },
   {
     type: 'video' as const,
@@ -183,14 +176,6 @@ const baseItems = [
     thumbnail: '/images/video-thumbnails/performance.jpg',
     category: 'live', // Kept as live since it's a video
     description: 'Live performance at Pilots Cove Amphitheater',
-  },
-  {
-    type: 'video' as const,
-    src: '/videos/behind-scenes.mp4',
-    youtubeId: 'dQw4w9WgXcQ',
-    thumbnail: '/images/gallery-2.jpg',
-    category: 'photos', // Already was "photos"
-    description: 'Behind the scenes at summer tour',
   },
 ]
 

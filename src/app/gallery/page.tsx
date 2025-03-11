@@ -144,7 +144,7 @@ export default function GalleryPage() {
                       className='object-cover transition-transform duration-500 group-hover:scale-105'
                     />
                   ) : (
-                    <div className='w-full h-64 overflow-hidden rounded-lg'>
+                    <div className='w-full overflow-hidden rounded-lg h-full'>
                       <iframe
                         src={`https://www.youtube.com/embed/${item.youtubeId}`}
                         title={item.description}
