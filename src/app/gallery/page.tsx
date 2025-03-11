@@ -64,8 +64,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 5,
     type: 'video',
-    src: 'https://www.youtube.com/embed/6XW3ABv5P3c',
-    youtubeId: '6XW3ABv5P3c',
+    src: '/videos/performance.mp4',
+    youtubeId: 'EVn5cUHIEys',
     thumbnail: '/images/video-thumbnails/performance.jpg',
     category: 'live',
     description: 'Live performance at Charleston Music Hall',
@@ -73,15 +73,124 @@ const galleryItems: GalleryItem[] = [
   {
     id: 6,
     type: 'video',
-    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Replace with your actual YouTube video ID
+    src: '/videos/performance.mp4',
+    youtubeId: 'EVn5cUHIEys',
+    thumbnail: '/images/video-thumbnails/performance.jpg',
+    category: 'live',
+    description: 'Live performance at Charleston Music Hall',
+  },
+  {
+    id: 7,
+    type: 'video',
+    src: '/videos/behind-scenes.mp4',
     youtubeId: 'dQw4w9WgXcQ',
-    thumbnail: '/images/gallery-2.jpg', // Temporary placeholder - replace with actual video thumbnail
+    thumbnail: '/images/gallery-2.jpg',
     category: 'photos',
     description: 'Behind the scenes at summer tour',
   },
 ]
 
 type Category = 'all' | 'live' | 'photos'
+
+// Update the VideoThumbnail and gallery rendering code
+
+// 1. First, give each player a unique ID
+function YouTubePlayerWithId({ videoId, id }: { videoId: string; id: string }) {
+  const [isLoaded, setIsLoaded] = useState(false)
+  const playerRef = useRef<HTMLDivElement>(null)
+  const apiLoadedRef = useRef(false)
+
+  useEffect(() => {
+    // Function to initialize player once API is ready
+    function initializePlayer() {
+      if (!playerRef.current) return
+
+      try {
+        // Make sure YT is defined before using it
+        if (window.YT && window.YT.Player) {
+          new window.YT.Player(playerRef.current, {
+            videoId: videoId,
+            height: '100%',
+            width: '100%',
+            playerVars: {
+              playsinline: 1,
+              autoplay: 0,
+              modestbranding: 1,
+              rel: 0,
+            },
+            events: {
+              onReady: () => setIsLoaded(true),
+              onError: (e) => console.error('YouTube error:', e.data),
+            },
+          })
+        }
+      } catch (err) {
+        console.error('Failed to initialize player:', err)
+      }
+    }
+
+    // Check if API is already loaded
+    if (window.YT && window.YT.Player) {
+      initializePlayer()
+    } else {
+      // Prevent multiple script loads
+      if (!apiLoadedRef.current) {
+        apiLoadedRef.current = true
+
+        // Load YouTube API
+        const tag = document.createElement('script')
+        tag.src = 'https://www.youtube.com/iframe_api'
+
+        // Set global callback that YouTube requires
+        window.onYouTubeIframeAPIReady = () => {
+          initializePlayer()
+        }
+
+        // Add script to page
+        const firstScript = document.getElementsByTagName('script')[0]
+        firstScript.parentNode?.insertBefore(tag, firstScript)
+      } else {
+        // API is loading but not ready - add to global callback chain
+        const originalCallback = window.onYouTubeIframeAPIReady
+        window.onYouTubeIframeAPIReady = () => {
+          if (originalCallback) originalCallback()
+          initializePlayer()
+        }
+      }
+    }
+
+    return () => {
+      // Cleanup if needed
+    }
+  }, [videoId, id])
+
+  // YouTube thumbnail to show while loading
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+
+  return (
+    <div className='relative w-full h-full'>
+      {!isLoaded && (
+        <div
+          className='absolute inset-0 bg-center bg-cover'
+          style={{ backgroundImage: `url(${thumbnailUrl})` }}
+        >
+          <div className='absolute inset-0 bg-black/30 flex items-center justify-center'>
+            <div className='bg-primary/80 rounded-full p-4 shadow-lg'>
+              <svg
+                className='w-10 h-10 text-primary-content'
+                fill='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path d='M8 5v14l11-7z' />
+              </svg>
+            </div>
+          </div>
+        </div>
+      )}
+      <div ref={playerRef} className='w-full h-full' />
+    </div>
+  )
+}
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('all')
@@ -220,12 +329,14 @@ export default function GalleryPage() {
                       className='object-cover transition-transform duration-500 group-hover:scale-105'
                     />
                   ) : (
-                    <div className='relative h-64 bg-base-200 overflow-hidden'>
-                      <YouTubePlayer
-                        videoId={item.youtubeId}
-                        thumbnail={item.thumbnail}
-                        height='100%'
-                      />
+                    <div className='w-full h-64 overflow-hidden rounded-lg'>
+                      <iframe
+                        src={`https://www.youtube.com/embed/${item.youtubeId}`}
+                        title={item.description}
+                        className='w-full h-full'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowFullScreen
+                      ></iframe>
                     </div>
                   )}
                 </div>
@@ -307,12 +418,15 @@ export default function GalleryPage() {
                         </div>
                       ) : (
                         <div className='w-full max-w-4xl mx-auto'>
-                          <YouTubePlayer
-                            videoId={(item as GalleryVideo).youtubeId}
-                            thumbnail={(item as GalleryVideo).thumbnail}
-                            height='500px'
-                            autoplay={true}
-                          />
+                          <div className='w-full h-64 overflow-hidden rounded-lg'>
+                            <iframe
+                              src={`https://www.youtube.com/embed/${item.youtubeId}`}
+                              title={item.description}
+                              className='w-full h-full'
+                              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                              allowFullScreen
+                            ></iframe>
+                          </div>
                           <p className='mt-4 text-base-content'>
                             {item.description}
                           </p>

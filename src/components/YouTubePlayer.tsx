@@ -45,6 +45,34 @@ export default function YouTubePlayer({
   const apiLoadedRef = useRef(false)
 
   useEffect(() => {
+    // Define initializePlayer inside useEffect
+    const initializePlayer = () => {
+      if (!playerRef.current) return
+
+      const newPlayer = new window.YT.Player(playerRef.current, {
+        videoId,
+        playerVars: {
+          playsinline: 1,
+          autoplay: autoplay ? 1 : 0,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0,
+        },
+        events: {
+          onReady: () => {
+            setIsLoaded(true)
+            setPlayer(newPlayer)
+          },
+          onStateChange: (event: any) => {
+            setIsPlaying(event.data === window.YT.PlayerState.PLAYING)
+          },
+          onError: (event: any) => {
+            console.error('YouTube Player Error:', event.data)
+          },
+        },
+      })
+    }
+
     // Check if API is already loaded
     if (window.YT && window.YT.Player) {
       initializePlayer()
@@ -70,34 +98,7 @@ export default function YouTubePlayer({
       // Clean up
       window.onYouTubeIframeAPIReady = () => {}
     }
-  }, [videoId])
-
-  const initializePlayer = () => {
-    if (!playerRef.current) return
-
-    const newPlayer = new window.YT.Player(playerRef.current, {
-      videoId,
-      playerVars: {
-        playsinline: 1,
-        autoplay: autoplay ? 1 : 0,
-        modestbranding: 1,
-        rel: 0,
-        showinfo: 0,
-      },
-      events: {
-        onReady: () => {
-          setIsLoaded(true)
-          setPlayer(newPlayer)
-        },
-        onStateChange: (event: any) => {
-          setIsPlaying(event.data === window.YT.PlayerState.PLAYING)
-        },
-        onError: (event: any) => {
-          console.error('YouTube Player Error:', event.data)
-        },
-      },
-    })
-  }
+  }, [videoId, autoplay])
 
   const handlePlayClick = () => {
     if (player && isLoaded) {
