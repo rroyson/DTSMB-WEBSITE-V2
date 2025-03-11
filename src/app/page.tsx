@@ -52,21 +52,24 @@ export default function Home() {
             <div className='md:w-1/2 text-center md:text-left'>
               <div className='relative inline-block mb-2'>
                 <span className='text-primary-content/80 tracking-wide font-mono text-sm uppercase relative z-10'>
-                  Live Music Performance
+                  Get Ready to Party!
                 </span>
                 <div className='absolute bottom-0 left-0 h-3 w-full bg-accent/30 -skew-x-12'></div>
               </div>
 
               <h1 className='text-4xl md:text-6xl font-serif mb-6 text-primary-content leading-tight'>
-                Dans Tramp Stamp{' '}
+                The Charleston{' '}
                 <span className='block md:inline transform transition-transform hover:translate-x-2'>
-                  &amp; the Money Bags
+                  Wedding Band{' '}
+                </span>
+                <span className='text-accent block md:inline transform transition-transform hover:translate-x-2'>
+                  + DTSMB
                 </span>
               </h1>
 
               <p className='text-xl md:text-2xl mb-10 text-primary-content/90 max-w-xl'>
                 Professional cover band for weddings, corporate events, private
-                parties, and bars.
+                parties, and venues.
               </p>
 
               <div className='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'>

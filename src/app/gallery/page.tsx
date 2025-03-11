@@ -202,7 +202,7 @@ export default function GalleryPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className='fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 md:p-10'
+              className='fixed inset-0 bg-black/90 z-50 h-screen flex items-center justify-center '
             >
               {(() => {
                 const item = galleryItems.find(

@@ -38,7 +38,7 @@ export default function ServicesPage() {
               How We Can Make Your Event Special
             </h2>
             <p className='text-info-content text-lg mb-8'>
-              Dans Tramp Stamp &amp; the Money Bags (DTSMB) brings professional,
+              The Charleston Wedding Band and DTSMB bring professional,
               high-energy performances to make your event unforgettable. With
               our extensive repertoire spanning multiple decades and genres, we
               customize our setlist to perfectly match your event&apos;s vibe
