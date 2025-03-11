@@ -65,7 +65,7 @@ export default function Home() {
                   <span className='inline-block text-primary-content opacity-50 mr-2'>
                     +
                   </span>
-                  <span className='inline-flex items-center justify-center bg-accent text-accent-content/90 px-3 py-1 rounded-md transform -rotate-3 hover:rotate-0 transition-transform duration-300 shadow-sm relative text-2xl md:text-3xl'>
+                  <span className='inline-flex items-center justify-center bg-accent/80 text-accent-content/90 px-3 py-1 rounded-md transform -rotate-3 hover:rotate-0 transition-transform duration-300 shadow-sm relative text-2xl md:text-3xl'>
                     <span className='absolute inset-0 border border-accent-content/20 rounded-md transform rotate-1'></span>
                     <span className='font-semibold tracking-wider'>DTSMB</span>
                   </span>
