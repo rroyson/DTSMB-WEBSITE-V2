@@ -266,10 +266,7 @@ export default function ContactForm() {
               onChange={handleCheckboxChange}
               className='checkbox checkbox-primary'
             />
-            <span className='label-text'>
-              Sign up for occasional updates on our availability and special
-              offers
-            </span>
+            <span className='label-text'>Sign up for our mailing list</span>
           </label>
         </div>
 

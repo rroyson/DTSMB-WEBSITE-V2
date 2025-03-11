@@ -17,7 +17,7 @@ export default function Navbar() {
         <div className='flex justify-between items-center'>
           <div className='flex items-center'>
             <Link href='/' className='flex items-center'>
-              <h1 className='text-2xl md:text-3xl font-serif font-bold text-primary hover:text-primary-focus transition-colors'>
+              <h1 className='text-2xl md:text-3xl font-serif text-primary hover:text-primary-focus'>
                 DTSMB
               </h1>
             </Link>
@@ -27,30 +27,33 @@ export default function Navbar() {
           <div className='hidden md:flex space-x-4 items-center'>
             <Link
               href='/'
-              className='text-neutral hover:text-primary transition-colors'
+              className='text-base-content hover:text-primary transition-colors'
             >
               Home
             </Link>
             <Link
               href='/services'
-              className='text-neutral hover:text-primary transition-colors'
+              className='text-base-content hover:text-primary transition-colors'
             >
               Services
             </Link>
             <Link
               href='/gallery'
-              className='text-neutral hover:text-primary transition-colors'
+              className='text-base-content hover:text-primary transition-colors'
             >
               Gallery
             </Link>
             <Link
               href='/contact'
-              className='text-neutral hover:text-primary transition-colors'
+              className='text-base-content hover:text-primary transition-colors'
             >
               Contact
             </Link>
             <ThemeSwitcher />
-            <Link href='/contact' className='btn btn-primary'>
+            <Link
+              href='/contact'
+              className='btn btn-primary text-primary-content'
+            >
               Book Now
             </Link>
           </div>
@@ -59,7 +62,7 @@ export default function Navbar() {
           <div className='flex items-center gap-2 md:hidden'>
             <ThemeSwitcher />
             <button
-              className='text-neutral'
+              className='text-base-content'
               onClick={toggleMenu}
               aria-label='Toggle menu'
             >
@@ -103,35 +106,35 @@ export default function Navbar() {
           <div className='md:hidden mt-4 pb-4 space-y-4 flex flex-col'>
             <Link
               href='/'
-              className='text-neutral hover:text-primary transition-colors px-2 py-1'
+              className='text-base-content hover:text-primary transition-colors px-2 py-1'
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href='/services'
-              className='text-neutral hover:text-primary transition-colors px-2 py-1'
+              className='text-base-content hover:text-primary transition-colors px-2 py-1'
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               href='/gallery'
-              className='text-neutral hover:text-primary transition-colors px-2 py-1'
+              className='text-base-content hover:text-primary transition-colors px-2 py-1'
               onClick={() => setIsMenuOpen(false)}
             >
               Gallery
             </Link>
             <Link
               href='/contact'
-              className='text-neutral hover:text-primary transition-colors px-2 py-1'
+              className='text-base-content hover:text-primary transition-colors px-2 py-1'
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
             <Link
               href='/contact'
-              className='btn btn-primary w-full'
+              className='btn btn-primary text-primary-content w-full'
               onClick={() => setIsMenuOpen(false)}
             >
               Book Now

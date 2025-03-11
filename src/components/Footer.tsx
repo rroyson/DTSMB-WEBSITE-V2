@@ -9,18 +9,20 @@ export default function Footer() {
       <div className='container mx-auto px-4 py-12'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
           <div>
-            <h2 className='text-2xl font-serif font-bold mb-4'>DTSMB</h2>
-            <p className='mb-4'>
+            <h2 className='text-2xl font-serif text-neutral-content mb-4'>
+              DTSMB
+            </h2>
+            <p className='mb-4 text-neutral-content'>
               Dans Tramp Stamp and the Money Bags - Professional live music for
               all occasions.
             </p>
-            <p className='mb-4'>
+            <p className='mb-4 text-neutral-content'>
               Bringing the party to your weddings, corporate events, and private
               parties.
             </p>
-            <p className='text-sm opacity-90 border-l-2 border-primary pl-3'>
+            <p className='text-sm text-neutral-content/80 border-l-2 border-primary pl-3'>
               Also booking as{' '}
-              <span className='font-bold text-primary-content'>
+              <span className='text-primary-content'>
                 The Charleston Wedding Band
               </span>{' '}
               for wedding events.
@@ -28,17 +30,20 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className='text-lg font-bold mb-4'>Quick Links</h3>
+            <h3 className='text-lg text-neutral-content mb-4'>Quick Links</h3>
             <ul className='space-y-2'>
               <li>
-                <Link href='/' className='hover:text-primary transition-colors'>
+                <Link
+                  href='/'
+                  className='text-neutral-content hover:text-primary transition-colors'
+                >
                   Home
                 </Link>
               </li>
               <li>
                 <Link
                   href='/services'
-                  className='hover:text-primary transition-colors'
+                  className='text-neutral-content hover:text-primary transition-colors'
                 >
                   Services
                 </Link>
@@ -46,7 +51,7 @@ export default function Footer() {
               <li>
                 <Link
                   href='/contact'
-                  className='hover:text-primary transition-colors'
+                  className='text-neutral-content hover:text-primary transition-colors'
                 >
                   Contact
                 </Link>
@@ -55,31 +60,21 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className='text-lg font-bold mb-4'>Contact Us</h3>
-            <p className='mb-2'>
-              Email:{' '}
-              {PUBLIC_ENV?.MAIN_EMAIL ? (
-                <a
-                  href={`mailto:${PUBLIC_ENV.MAIN_EMAIL}`}
-                  className='hover:text-primary transition-colors'
-                >
-                  {PUBLIC_ENV.MAIN_EMAIL}
-                </a>
-              ) : (
-                'Unavailable'
-              )}
+            <h3 className='text-lg text-neutral-content mb-4'>Contact Us</h3>
+            <p className='mb-2 text-neutral-content'>
+              Email: {PUBLIC_ENV.MAIN_EMAIL}
             </p>
-            <p className='mb-1'>
-              (888) 555-BAND {/* Replace with your actual proxy number */}
+            <p className='mb-1 text-neutral-content'>(888) 555-BAND</p>
+            <p className='mb-4 text-sm text-neutral-content/80'>
+              Call or text us anytime
             </p>
-            <p className='mb-4 text-sm opacity-80'>Call or text us anytime</p>
 
             <div className='flex space-x-4'>
               <a
                 href='https://www.facebook.com/DTSMB/'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='hover:text-primary transition-colors'
+                className='text-neutral-content hover:text-primary transition-colors'
                 aria-label='Facebook'
               >
                 {/* Facebook Icon */}
@@ -97,7 +92,7 @@ export default function Footer() {
                 href='https://www.instagram.com/danstrampstamp'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='hover:text-primary transition-colors'
+                className='text-neutral-content hover:text-primary transition-colors'
                 aria-label='Instagram'
               >
                 {/* Instagram Icon */}
@@ -116,7 +111,7 @@ export default function Footer() {
         </div>
 
         <div className='mt-12 pt-8 border-t border-neutral-content/20 text-center'>
-          <p>
+          <p className='text-neutral-content'>
             &copy; {currentYear} Dans Tramp Stamp and the Money Bags. All rights
             reserved.
           </p>
