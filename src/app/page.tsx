@@ -47,7 +47,7 @@ export default function Home() {
         ></div>
 
         <div className='container mx-auto px-4 relative z-10'>
-          <div className='flex flex-col md:flex-row items-center gap-8 md:gap-12'>
+          <div className='flex flex-col md:flex-row items-center gap-8 md:gap-12 md:items-start'>
             {/* Text content - modernized */}
             <div className='md:w-1/2 text-center md:text-left'>
               <div className='relative inline-block mb-2'>
@@ -103,7 +103,7 @@ export default function Home() {
             </div>
 
             {/* Featured Image with blend effect (no play button) */}
-            <div className='md:w-1/2 mt-10 md:mt-0'>
+            <div className='w-full sm:w-full md:w-1/2 mt-10 md:mt-0'>
               <div className='relative'>
                 {/* Subtle border decoration */}
                 <div className='absolute -inset-3 border border-primary-content/20 rounded-xl -rotate-1'></div>
