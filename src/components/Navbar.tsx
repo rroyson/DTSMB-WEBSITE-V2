@@ -7,10 +7,6 @@ import ThemeSwitcher from './ThemeSwitcher'
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
   return (
     <header className='bg-base-100 shadow-md sticky top-0 z-50'>
       <nav className='container mx-auto px-4 py-4'>
