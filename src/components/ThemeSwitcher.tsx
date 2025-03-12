@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const themes = ['light', 'emerald', 'cmyk', 'dark']
+const themes = ['light', 'emerald', 'cmyk']
 
 export default function ThemeSwitcher() {
   const [theme, setTheme] = useState('light')
