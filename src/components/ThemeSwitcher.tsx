@@ -1,19 +1,45 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const themes = ['light', 'emerald', 'cmyk']
 
 export default function ThemeSwitcher() {
   const [theme, setTheme] = useState('light')
   const [isOpen, setIsOpen] = useState(false)
-
+  const themeDropdown = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
   // Initialize theme from localStorage or default to 'dtsmb'
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'light'
     setTheme(savedTheme)
     document.documentElement.setAttribute('data-theme', savedTheme)
   }, [])
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      // Don't close if clicking the button or the menu
+      if (
+        (buttonRef.current &&
+          buttonRef.current.contains(event.target as Node)) ||
+        (themeDropdown.current &&
+          themeDropdown.current.contains(event.target as Node))
+      ) {
+        return // Don't do anything if clicking the button or menu
+      }
+
+      // Otherwise, close the menu
+      setIsOpen(false)
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen])
 
   const handleThemeChange = (newTheme: string) => {
     setTheme(newTheme)
@@ -25,6 +51,7 @@ export default function ThemeSwitcher() {
   return (
     <div className='relative'>
       <button
+        ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
         className='btn btn-sm btn-primary-content gap-1 normal-case'
       >
@@ -56,7 +83,10 @@ export default function ThemeSwitcher() {
       </button>
 
       {isOpen && (
-        <div className='dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box h-fit max-h-96 w-52 overflow-y-auto shadow-2xl mt-4 z-50 absolute top-10 right-0'>
+        <div
+          ref={themeDropdown}
+          className='dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box h-fit max-h-96 w-52 overflow-y-auto shadow-2xl mt-4 z-50 absolute top-10 right-0'
+        >
           <div className='grid grid-cols-1 gap-3 p-3'>
             {themes.map((t) => (
               <button
