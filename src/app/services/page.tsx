@@ -1,9 +1,11 @@
 import Image from 'next/image'
 
 export const metadata = {
-  title: 'DTSMB | Services & Pricing',
+  title: 'Professional Music Services | The Charleston Wedding Band',
   description:
-    'Professional band services for weddings, corporate events, private parties, and bars. View our packages and pricing.',
+    'Explore our professional music services for weddings, corporate events, and private parties. Live entertainment tailored to your special occasion.',
+  keywords:
+    'wedding music, live band, corporate event entertainment, Charleston wedding band',
 }
 
 export default function ServicesPage() {
