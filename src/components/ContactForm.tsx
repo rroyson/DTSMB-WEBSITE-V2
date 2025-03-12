@@ -144,7 +144,10 @@ export default function ContactForm() {
         .
       </p>
 
-      <form onSubmit={handleSubmit} className='space-y-6 relative z-10'>
+      <form
+        onSubmit={handleSubmit}
+        className='space-y-6 relative z-10 text-base-content'
+      >
         <div className='form-control w-full'>
           <label className='label'>
             <span className='label-text font-medium'>Full Name</span>
@@ -185,7 +188,7 @@ export default function ContactForm() {
               name='phone'
               value={formData.phone}
               onChange={handleChange}
-              className='input input-bordered w-full bg-base-100 text-base-content'
+              className='input input-bordered w-full bg-base-100'
               placeholder='(555) 123-4567'
             />
           </div>
@@ -199,7 +202,7 @@ export default function ContactForm() {
             name='eventType'
             value={formData.eventType}
             onChange={handleChange}
-            className='select select-bordered w-full bg-base-100 text-base-content'
+            className='select select-bordered w-full bg-base-100'
             required
           >
             <option value='' disabled>
@@ -222,7 +225,7 @@ export default function ContactForm() {
             name='eventDate'
             value={formData.eventDate}
             onChange={handleChange}
-            className='input input-bordered w-full bg-base-100 text-base-content'
+            className='input input-bordered w-full bg-base-100'
           />
         </div>
 
