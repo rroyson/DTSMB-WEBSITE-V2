@@ -2,9 +2,8 @@
 
 import { useState } from 'react'
 
-// Using a constant for the email
 const PUBLIC_ENV = {
-  MAIN_EMAIL: 'info@charlestonweddingband.com', // Replace with your actual email
+  MAIN_EMAIL: 'thecharlestonweddingband@gmail.com',
 }
 
 export default function ContactForm() {
