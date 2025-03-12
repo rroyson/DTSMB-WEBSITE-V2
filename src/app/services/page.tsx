@@ -401,7 +401,7 @@ export default function ServicesPage() {
               </div>
             </div>
           </div>
-          <div className='text-right text-error'>
+          <div className='text-center text-error'>
             *Events outside of Charleston, SC may incure a travel fee.
           </div>
         </div>
