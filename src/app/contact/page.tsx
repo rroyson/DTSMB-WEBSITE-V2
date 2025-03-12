@@ -19,9 +19,9 @@ export default function ContactPage() {
           fill
           className='object-cover'
         />
-        <div className='absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80' />
+        <div className='absolute inset-0 bg-gradient-to-b from-neutral/80 via-neutral/50 to-neutral/80' />
         <div className='absolute inset-0 flex items-center justify-center'>
-          <div className='text-center text-white px-4 max-w-3xl mx-4'>
+          <div className='text-center text-neutral-content dark:text-base-content px-4 max-w-3xl mx-4'>
             <h1 className='text-4xl md:text-5xl font-serif font-bold mb-6 drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]'>
               Contact Us
             </h1>
@@ -34,7 +34,7 @@ export default function ContactPage() {
 
       <div className='py-16 bg-base-100'>
         <div className='container mx-auto px-4'>
-          <div className='text-info-content grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
             {/* Contact Form - Now appears first on mobile */}
             <div className='order-1 lg:order-1'>
               <ContactForm />
@@ -43,10 +43,10 @@ export default function ContactPage() {
             {/* Contact Info - Now appears second on mobile */}
             <div className='order-2 lg:order-2'>
               <div className='bg-base-200 p-8 rounded-xl shadow-lg mb-8'>
-                <h3 className='text-2xl font-serif font-bold mb-4'>
+                <h3 className='text-2xl font-serif font-bold mb-4 text-base-content'>
                   Contact Information
                 </h3>
-                <div className='space-y-4'>
+                <div className='space-y-4 text-base-content'>
                   <div className='flex items-start gap-3'>
                     <div className='text-primary mt-1'>
                       <svg
@@ -61,10 +61,10 @@ export default function ContactPage() {
                     <div>
                       <h4 className='font-bold'>Phone</h4>
                       <p className='mb-1'>
-                        (860) 729-3354{' '}
+                        (860) 729-3354
                         {/* Replace with your actual proxy number */}
                       </p>
-                      <p className='text-sm text-gray-600'>
+                      <p className='text-sm text-base-content/70'>
                         Call or text us anytime
                       </p>
                     </div>
@@ -113,13 +113,13 @@ export default function ContactPage() {
               </div>
 
               <div className='bg-base-200 p-8 rounded-xl shadow-lg'>
-                <h3 className='text-2xl font-serif font-bold mb-4'>
+                <h3 className='text-2xl font-serif font-bold mb-4 text-base-content'>
                   Follow Us
                 </h3>
-                <div className='flex gap-4 mb-6'>
+                <div className='text-base-content flex gap-4 mb-6'>
                   <a
                     href='https://www.facebook.com/DTSMB/'
-                    className='btn btn-circle btn-outline'
+                    className='btn btn-circle bg-base-100 hover:bg-primary hover:text-primary-content text-base-content'
                     target='_blank'
                     rel='noopener noreferrer'
                     aria-label='Facebook'
@@ -137,7 +137,7 @@ export default function ContactPage() {
                   </a>
                   <a
                     href='https://www.youtube.com/@dtsmb5919'
-                    className='btn btn-circle btn-outline'
+                    className='btn btn-circle bg-base-100 hover:bg-primary hover:text-primary-content text-base-content'
                     target='_blank'
                     rel='noopener noreferrer'
                     aria-label='YouTube'
@@ -155,7 +155,7 @@ export default function ContactPage() {
                   </a>
                   <a
                     href='https://www.instagram.com/danstrampstamp'
-                    className='btn btn-circle btn-outline'
+                    className='btn btn-circle bg-base-100 hover:bg-primary hover:text-primary-content text-base-content'
                     target='_blank'
                     rel='noopener noreferrer'
                     aria-label='Instagram'
@@ -210,19 +210,19 @@ export default function ContactPage() {
       </div>
 
       {/* FAQ Section */}
-      <section className='text-info-content py-16 bg-base-200'>
+      <section className='py-16 bg-base-200'>
         <div className='container mx-auto px-4'>
-          <h2 className='text-3xl md:text-4xl font-serif font-bold mb-12 text-center'>
+          <h2 className='text-3xl md:text-4xl font-serif font-bold mb-12 text-center text-base-content'>
             Frequently Asked Questions
           </h2>
 
           <div className='max-w-3xl mx-auto space-y-4'>
             <div className='collapse collapse-plus bg-base-100'>
               <input type='radio' name='faq-accordion' defaultChecked />
-              <div className='collapse-title text-xl font-medium'>
+              <div className='collapse-title text-xl font-medium text-base-content'>
                 How far in advance should I book?
               </div>
-              <div className='collapse-content'>
+              <div className='collapse-content text-base-content'>
                 <p>
                   We recommend booking at least 6-12 months in advance for
                   weddings and large events, especially during peak season
@@ -235,10 +235,10 @@ export default function ContactPage() {
 
             <div className='collapse collapse-plus bg-base-100'>
               <input type='radio' name='faq-accordion' />
-              <div className='collapse-title text-xl font-medium'>
+              <div className='collapse-title text-xl font-medium text-base-content'>
                 Do you require a deposit?
               </div>
-              <div className='collapse-content'>
+              <div className='collapse-content text-base-content'>
                 <p>
                   Yes, we require a 50% non-refundable deposit to secure your
                   date, with the remaining balance due 14 days before the event.
@@ -250,10 +250,10 @@ export default function ContactPage() {
 
             <div className='collapse collapse-plus bg-base-100'>
               <input type='radio' name='faq-accordion' />
-              <div className='collapse-title text-xl font-medium'>
+              <div className='collapse-title text-xl font-medium text-base-content'>
                 How long do you typically play?
               </div>
-              <div className='collapse-content'>
+              <div className='collapse-content text-base-content'>
                 <p>
                   Our standard packages include 2-4 hours of performance time,
                   typically divided into 45-minute sets with short breaks in
@@ -265,10 +265,10 @@ export default function ContactPage() {
 
             <div className='collapse collapse-plus bg-base-100'>
               <input type='radio' name='faq-accordion' />
-              <div className='collapse-title text-xl font-medium'>
+              <div className='collapse-title text-xl font-medium text-base-content'>
                 Can you learn a special song for our event?
               </div>
-              <div className='collapse-content'>
+              <div className='collapse-content text-base-content'>
                 <p>
                   Absolutely! We offer custom song arrangements for special
                   moments like first dances or corporate theme songs. We
@@ -280,10 +280,10 @@ export default function ContactPage() {
 
             <div className='collapse collapse-plus bg-base-100'>
               <input type='radio' name='faq-accordion' />
-              <div className='collapse-title text-xl font-medium'>
+              <div className='collapse-title text-xl font-medium text-base-content'>
                 Do you provide your own equipment?
               </div>
-              <div className='collapse-content'>
+              <div className='collapse-content text-base-content'>
                 <p>
                   Yes, we provide our own professional sound system,
                   instruments, and lighting for all events. For larger venues or
@@ -296,10 +296,10 @@ export default function ContactPage() {
 
             <div className='collapse collapse-plus bg-base-100'>
               <input type='radio' name='faq-accordion' />
-              <div className='collapse-title text-xl font-medium'>
+              <div className='collapse-title text-xl font-medium text-base-content'>
                 What is The Charleston Wedding Band + DTSMB?
               </div>
-              <div className='collapse-content'>
+              <div className='collapse-content text-base-content'>
                 <p>
                   The Charleston Wedding Band is our wedding-focused brand.
                   It&apos;s the same talented musicians as DTSMB, but with
@@ -331,7 +331,7 @@ export default function ContactPage() {
             </a>
             <a
               href={`mailto:${MAIN_EMAIL}`}
-              className='btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-primary'
+              className='btn btn-lg btn-outline border-primary-content text-primary-content hover:bg-primary-content hover:text-secondary'
             >
               Email Us
             </a>
@@ -339,34 +339,36 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className='bg-base-200 rounded-lg p-6 shadow-sm'>
-        <div className='flex flex-col gap-2'>
-          <div className='flex items-center gap-3'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-6 w-6 text-primary flex-shrink-0'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-              />
-            </svg>
-            <p className='text-base-content'>Prefer to reach out directly?</p>
+      <div className='container mx-auto px-4 py-8'>
+        <div className='bg-base-200 rounded-lg p-6 shadow-sm'>
+          <div className='flex flex-col gap-2'>
+            <div className='flex items-center gap-3'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-6 w-6 text-primary flex-shrink-0'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+                />
+              </svg>
+              <p className='text-base-content'>Prefer to reach out directly?</p>
+            </div>
+            <p className='text-base-content pl-9'>
+              Email us at{' '}
+              <a
+                href={`mailto:${MAIN_EMAIL}`}
+                className='text-primary font-medium hover:underline transition-colors'
+              >
+                {MAIN_EMAIL}
+              </a>
+            </p>
           </div>
-          <p className='text-base-content pl-9'>
-            Email us at{' '}
-            <a
-              href={`mailto:${MAIN_EMAIL}`}
-              className='text-primary font-medium hover:underline transition-colors'
-            >
-              {MAIN_EMAIL}
-            </a>
-          </p>
         </div>
       </div>
     </div>
