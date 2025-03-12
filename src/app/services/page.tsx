@@ -17,9 +17,9 @@ export default function ServicesPage() {
           fill
           className='object-cover'
         />
-        <div className='absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80' />
+        <div className='absolute inset-0 bg-neutral/80' />
         <div className='absolute inset-0 flex items-center justify-center'>
-          <div className='text-center text-white px-4 max-w-3xl mx-4'>
+          <div className='text-center text-neutral-content px-4 max-w-3xl mx-4'>
             <h1 className='text-4xl md:text-5xl font-serif font-bold mb-6 drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]'>
               Services & Pricing
             </h1>
@@ -37,11 +37,10 @@ export default function ServicesPage() {
             <h2 className='text-3xl md:text-4xl font-serif font-bold mb-6 text-primary'>
               One Band, Two Styles—seamlessly tailored to your event.
             </h2>
-            <p className='text-info-content text-lg mb-8'>
+            <p className='text-lg mb-8 text-base-content'>
               <span className='text-secondary'>
-                {' '}
-                The Charleston Wedding Band{' '}
-              </span>
+                The Charleston Wedding Band
+              </span>{' '}
               and <span className='text-secondary'>DTSMB</span> bring
               professional, high-energy performances to make your event
               unforgettable. Whether you need an elegant wedding band or a
@@ -49,20 +48,11 @@ export default function ServicesPage() {
               diverse setlist, and unforgettable performances to match your
               celebration&apos;s vibe.
             </p>
-            {/* <p className='text-info-content mb-4 text-sm bg-base-200 p-3 rounded-lg border-l-4 border-primary'>
-              <span className='font-bold text-primary'>
-                The Charleston Wedding Band:
-              </span>{' '}
-              We also perform at weddings under this name, offering the same
-              exceptional music and professional services. When you book DTSMB
-              for your wedding, you&apos;re getting the elegance and
-              sophistication of The Charleston Wedding Band.
-            </p> */}
             <div className='flex flex-col sm:flex-row justify-center gap-4'>
               <a href='#packages' className='btn btn-primary'>
                 View Packages
               </a>
-              <a href='/contact' className='btn btn-soft'>
+              <a href='/contact' className='btn btn-outline'>
                 Contact Us
               </a>
             </div>
@@ -87,9 +77,9 @@ export default function ServicesPage() {
                   fill
                   className='object-cover'
                 />
-                <div className='absolute inset-0 bg-gradient-to-t from-black/80 to-transparent'></div>
-                <div className='absolute bottom-0 left-0 right-0 p-4 text-white'>
-                  <h3 className='text-2xl font-serif font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]'>
+                <div className='absolute inset-0 bg-gradient-to-t from-neutral/70 to-transparent'></div>
+                <div className='absolute bottom-0 left-0 right-0 p-4'>
+                  <h3 className='text-2xl font-serif font-bold text-base-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]'>
                     Weddings
                   </h3>
                 </div>
@@ -97,7 +87,7 @@ export default function ServicesPage() {
               <div className='card-body flex flex-col h-full'>
                 <div className='divider my-0 mt-1'></div>
 
-                <ul className='text-info-content space-y-2 flex-grow'>
+                <ul className='space-y-2 flex-grow text-base-content'>
                   <li className='flex items-start'>
                     <span className='text-primary mr-2'>✓</span>
                     <span>Ceremony music</span>
@@ -147,16 +137,16 @@ export default function ServicesPage() {
                   fill
                   className='object-cover'
                 />
-                <div className='absolute inset-0 bg-gradient-to-t from-black/80 to-transparent'></div>
-                <div className='absolute bottom-0 left-0 right-0 p-4 text-white'>
-                  <h3 className='text-2xl font-serif font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]'>
+                <div className='absolute inset-0 bg-gradient-to-t from-neutral/70 to-transparent'></div>
+                <div className='absolute bottom-0 left-0 right-0 p-4'>
+                  <h3 className='text-2xl font-serif font-bold text-base-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]'>
                     Corporate Events
                   </h3>
                 </div>
               </figure>
               <div className='card-body flex flex-col h-full'>
                 <div className='divider my-0 mt-1'></div>
-                <ul className='text-info-content space-y-2 flex-grow'>
+                <ul className='space-y-2 flex-grow text-base-content'>
                   <li className='flex items-start'>
                     <span className='text-primary mr-2'>✓</span>
                     <span>Holiday parties & celebrations</span>
@@ -202,16 +192,16 @@ export default function ServicesPage() {
                   fill
                   className='object-cover'
                 />
-                <div className='absolute inset-0 bg-gradient-to-t from-black/80 to-transparent'></div>
-                <div className='absolute bottom-0 left-0 right-0 p-4 text-white'>
-                  <h3 className='text-2xl font-serif font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]'>
+                <div className='absolute inset-0 bg-gradient-to-t from-neutral/70 to-transparent'></div>
+                <div className='absolute bottom-0 left-0 right-0 p-4'>
+                  <h3 className='text-2xl font-serif font-bold text-base-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]'>
                     Private Parties
                   </h3>
                 </div>
               </figure>
               <div className='card-body flex flex-col h-full'>
                 <div className='divider my-0 mt-1'></div>
-                <ul className='text-info-content space-y-2 flex-grow'>
+                <ul className='space-y-2 flex-grow text-base-content'>
                   <li className='flex items-start'>
                     <span className='text-primary mr-2'>✓</span>
                     <span>Birthday & anniversary celebrations</span>
@@ -256,16 +246,16 @@ export default function ServicesPage() {
 
           {/* Wedding Packages */}
           <div id='wedding-packages' className='mb-20'>
-            <div className='text-info-content grid grid-cols-1 md:grid-cols-3 gap-8'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
               {/* Standard Package */}
               <div className='card bg-base-200 shadow-xl h-full'>
                 <div className='card-body flex flex-col justify-between'>
                   <div>
-                    <h4 className='card-title text-xl font-bold mb-2'>
+                    <h4 className='card-title text-xl font-bold mb-2 text-base-content'>
                       Standard
                     </h4>
                     <div className='divider my-2'></div>
-                    <ul className='space-y-3 mb-6 min-h-[220px]'>
+                    <ul className='space-y-3 mb-6 min-h-[220px] text-base-content'>
                       <li className='flex items-start'>
                         <span className='text-primary mr-2'>✓</span>
                         <span>Up to 2 hours of live music - 4 Piece Band</span>
@@ -309,31 +299,31 @@ export default function ServicesPage() {
                     <div className='divider opacity-30 my-2'></div>
                     <ul className='space-y-3 mb-6 min-h-[220px]'>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary-content mr-2'>✓</span>
                         <span>Up to 3 hours of live music - 4 Piece Band</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary-content mr-2'>✓</span>
                         <span>Up to 1 hour of live music - Acoustic Duo</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary-content mr-2'>✓</span>
                         <span>Premium Sound System + Sound Engineer</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary-content mr-2'>✓</span>
                         <span>Premium Stage and Dance Floor Lighting</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary-content mr-2'>✓</span>
                         <span>MC services for entire reception</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary-content mr-2'>✓</span>
                         <span>DJ Music - Ceremony & Dinner</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary-content mr-2'>✓</span>
                         <span>Custom Song Requests - 1 included</span>
                       </li>
                     </ul>
@@ -350,41 +340,41 @@ export default function ServicesPage() {
               <div className='card bg-base-200 shadow-xl h-full'>
                 <div className='card-body flex flex-col justify-between'>
                   <div>
-                    <h4 className='card-title text-xl font-bold mb-2'>
+                    <h4 className='card-title text-xl font-bold mb-2 text-base-content'>
                       Luxury
                     </h4>
                     <div className='divider my-2'></div>
-                    <ul className='space-y-3 mb-6 min-h-[220px]'>
+                    <ul className='space-y-3 mb-6 min-h-[220px] text-base-content'>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary mr-2'>✓</span>
                         <span>Up to 4 hours of live music - 4 Piece Band</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary mr-2'>✓</span>
                         <span>Up to 1 hour of live music - Acoustic Duo</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary mr-2'>✓</span>
                         <span>Premium Sound System + Sound Engineer</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary mr-2'>✓</span>
                         <span>Premium Stage and Dance Floor Lighting</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary mr-2'>✓</span>
                         <span>MC services for entire reception</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary mr-2'>✓</span>
                         <span>DJ Music - Ceremony & Dinner</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary mr-2'>✓</span>
                         <span>Custom Song Requests - 3 included</span>
                       </li>
                       <li className='flex items-start'>
-                        <span className='opacity-90 mr-2'>✓</span>
+                        <span className='text-primary mr-2'>✓</span>
                         <span>
                           Additional member - Keyboard, Saxophone or Acoustic
                           Guitar
@@ -408,15 +398,15 @@ export default function ServicesPage() {
       </section>
 
       {/* Additional services */}
-      <section className='text-info-content py-16 bg-base-200'>
+      <section className='py-16 bg-base-200'>
         <div className='container mx-auto px-4'>
-          <h2 className='text-3xl md:text-4xl font-serif font-bold mb-12 text-center'>
+          <h2 className='text-3xl md:text-4xl font-serif font-bold mb-12 text-center text-base-content'>
             Additional Services
           </h2>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
             <div className='card bg-base-100 shadow-lg'>
-              <div className='card-body text-center'>
+              <div className='card-body text-center text-base-content'>
                 <div className='text-4xl mb-4'>🎤</div>
                 <h3 className='card-title justify-center text-xl mb-2'>
                   Duo Performance
@@ -429,7 +419,7 @@ export default function ServicesPage() {
             </div>
 
             <div className='card bg-base-100 shadow-lg'>
-              <div className='card-body text-center'>
+              <div className='card-body text-center text-base-content'>
                 <div className='text-4xl mb-4'>🎧</div>
                 <h3 className='card-title justify-center text-xl mb-2'>
                   Recording Services
@@ -442,7 +432,7 @@ export default function ServicesPage() {
             </div>
 
             <div className='card bg-base-100 shadow-lg'>
-              <div className='card-body text-center'>
+              <div className='card-body text-center text-base-content'>
                 <div className='text-4xl mb-4'>💡</div>
                 <h3 className='card-title justify-center text-xl mb-2'>
                   Venue Lighting
@@ -455,7 +445,7 @@ export default function ServicesPage() {
             </div>
 
             <div className='card bg-base-100 shadow-lg'>
-              <div className='card-body text-center'>
+              <div className='card-body text-center text-base-content'>
                 <div className='text-4xl mb-4'>🎵</div>
                 <h3 className='card-title justify-center text-xl mb-2'>
                   Custom Song
@@ -486,7 +476,7 @@ export default function ServicesPage() {
             </a>
             <a
               href='tel:+15551234567'
-              className='btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-primary'
+              className='btn btn-lg btn-outline border-primary-content text-primary-content hover:bg-primary-content hover:text-secondary'
             >
               Call (860) 729-3354
             </a>

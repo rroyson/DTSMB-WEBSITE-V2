@@ -1,7 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { PUBLIC_ENV } from '@/utils/env'
+
+// Using a constant for the email
+const PUBLIC_ENV = {
+  MAIN_EMAIL: 'info@charlestonweddingband.com', // Replace with your actual email
+}
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -80,8 +84,7 @@ export default function ContactForm() {
 
   return (
     <div className='bg-base-200 p-8 rounded-xl shadow-xl relative overflow-hidden'>
-      {/* Elegant background effect */}
-      <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5'></div>
+      {/* Subtle accent gradient */}
       <div className='absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-primary/40 to-secondary/40'></div>
 
       {/* Success overlay */}
@@ -101,12 +104,14 @@ export default function ContactForm() {
               />
             </svg>
           </div>
-          <h3 className='text-2xl font-bold mb-2'>Inquiry Submitted!</h3>
-          <p className='text-center max-w-md mb-6'>
+          <h3 className='text-2xl font-bold mb-2 text-base-content'>
+            Inquiry Submitted!
+          </h3>
+          <p className='text-center max-w-md mb-6 text-base-content'>
             Thank you for your interest! We&apos;ll review your inquiry and get
             back to you within 24 hours.
           </p>
-          <div className='text-success-content animate-pulse'>
+          <div className='text-success animate-pulse'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               className='h-6 w-6'
@@ -128,12 +133,12 @@ export default function ContactForm() {
       <h2 className='text-3xl font-serif font-bold mb-6 text-primary relative z-10'>
         Book Your Event
       </h2>
-      <p className='mb-8 relative z-10'>
+      <p className='mb-8 relative z-10 text-base-content'>
         Fill out the form below and we&apos;ll get back to you within 24 hours.
         You can also email us directly at{' '}
         <a
           href={`mailto:${PUBLIC_ENV.MAIN_EMAIL}`}
-          className='text-primary hover:underline'
+          className='text-primary font-medium hover:underline'
         >
           {PUBLIC_ENV.MAIN_EMAIL}
         </a>
@@ -150,7 +155,7 @@ export default function ContactForm() {
             name='name'
             value={formData.name}
             onChange={handleChange}
-            className='input input-bordered w-full'
+            className='input input-bordered w-full bg-base-100 text-base-content'
             placeholder='Your name'
             required
           />
@@ -166,7 +171,7 @@ export default function ContactForm() {
               name='email'
               value={formData.email}
               onChange={handleChange}
-              className='input input-bordered w-full'
+              className='input input-bordered w-full bg-base-100 text-base-content'
               placeholder='your.email@example.com'
               required
             />
@@ -181,7 +186,7 @@ export default function ContactForm() {
               name='phone'
               value={formData.phone}
               onChange={handleChange}
-              className='input input-bordered w-full'
+              className='input input-bordered w-full bg-base-100 text-base-content'
               placeholder='(555) 123-4567'
             />
           </div>
@@ -195,14 +200,14 @@ export default function ContactForm() {
             name='eventType'
             value={formData.eventType}
             onChange={handleChange}
-            className='select select-bordered w-full'
+            className='select select-bordered w-full bg-base-100 text-base-content'
             required
           >
             <option value='' disabled>
               Select event type
             </option>
             <option value='wedding'>Wedding</option>
-            <option value='corporate'>Corporate Event</option>
+            <option value='corporate_event'>Corporate Event</option>
             <option value='private_party'>Private Party</option>
             <option value='bar_gig'>Bar/Venue Booking</option>
             <option value='other'>Other</option>
@@ -218,7 +223,7 @@ export default function ContactForm() {
             name='eventDate'
             value={formData.eventDate}
             onChange={handleChange}
-            className='input input-bordered w-full'
+            className='input input-bordered w-full bg-base-100 text-base-content'
           />
         </div>
 
@@ -230,13 +235,13 @@ export default function ContactForm() {
             name='eventDetails'
             value={formData.eventDetails}
             onChange={handleChange}
-            className='textarea textarea-bordered min-h-32 w-full p-4 text-base resize-y'
+            className='textarea textarea-bordered min-h-32 w-full p-4 text-base resize-y bg-base-100 text-base-content'
             placeholder='Tell us about your event, venue, expected number of guests, and any special requests.'
             rows={4}
             required
           ></textarea>
           <label className='label'>
-            <span className='label-text-alt text-base-content/70'>
+            <span className='label-text-alt'>
               Please include any important details
             </span>
           </label>
@@ -251,7 +256,9 @@ export default function ContactForm() {
               onChange={handleCheckboxChange}
               className='checkbox checkbox-primary'
             />
-            <span className='label-text'>Sign up for our mailing list</span>
+            <span className='text-base-content label-text'>
+              Sign up for our mailing list
+            </span>
           </label>
         </div>
 
@@ -270,7 +277,7 @@ export default function ContactForm() {
           third parties.
         </p>
 
-        <div className='mt-4 text-sm'>
+        <div className='mt-4 text-sm text-base-content'>
           <p>
             If you&apos;re having trouble with the form, please email us
             directly at{' '}

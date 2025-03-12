@@ -13,7 +13,7 @@ export default function Home() {
       {/* Hero Section - balanced modern design with image blending (no play button) */}
       <section className='relative bg-gradient-to-br from-primary to-secondary py-16 md:py-24 overflow-hidden'>
         {/* Background texture overlay */}
-        <div className='absolute inset-0 opacity-15 mix-blend-overlay'>
+        <div className='absolute inset-0 opacity-20 mix-blend-overlay'>
           <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'>
             <defs>
               <pattern
@@ -28,7 +28,7 @@ export default function Home() {
                   y1='0'
                   x2='0'
                   y2='10'
-                  style={{ stroke: 'white', strokeWidth: 1 }}
+                  style={{ stroke: 'currentColor', strokeWidth: 1 }}
                 />
               </pattern>
             </defs>
@@ -82,7 +82,7 @@ export default function Home() {
                   href='/contact'
                   className='btn btn-primary btn-lg relative overflow-hidden group'
                 >
-                  <span className='absolute inset-0 w-0 bg-white/20 transition-all duration-300 ease-out group-hover:w-full'></span>
+                  <span className='absolute inset-0 w-0 bg-primary-content/20 transition-all duration-300 ease-out group-hover:w-full'></span>
                   <span className='relative'>Book Now</span>
                 </Link>
                 <Link
@@ -147,8 +147,8 @@ export default function Home() {
 
                   {/* Content overlay with glass effect */}
                   <div className='absolute inset-0 bg-gradient-to-t from-neutral/70 to-transparent flex items-end'>
-                    <div className='p-6 w-full backdrop-blur-sm bg-neutral/10 rounded-b-xl'>
-                      <h2 className='text-2xl md:text-3xl text-neutral-content'>
+                    <div className='p-6 w-full backdrop-blur-sm bg-neutral/10 rounded-b-xl text-neutral-content'>
+                      <h2 className='text-2xl md:text-3xl'>
                         Unforgettable Performances
                       </h2>
                       <p className='text-lg text-neutral-content/90'>
@@ -185,12 +185,12 @@ export default function Home() {
         </div>
       </section>
       {/* Awards Section - with Glass effect */}
-      <section className='py-16 bg-gradient-to-br from-primary/10 to-secondary/10'>
+      <section className='py-16 bg-base-200'>
         <div className='container mx-auto px-4'>
-          <div className='glass rounded-box p-8 shadow-lg'>
+          <div className='bg-primary rounded-box p-8 shadow-lg'>
             <div className='flex flex-col md:flex-row items-center justify-between gap-8'>
               <div className='md:w-2/3'>
-                <h2 className='text-3xl md:text-4xl font-serif mb-4 text-primary'>
+                <h2 className='text-3xl md:text-4xl font-serif mb-4 text-primary-content'>
                   Award-Winning Entertainment
                 </h2>
                 <p className='text-xl mb-4 text-secondary'>
