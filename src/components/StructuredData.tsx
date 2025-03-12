@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function StructuredData({ data }: { data: any }) {
   return (
     <script
