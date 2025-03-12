@@ -107,7 +107,7 @@ export default function Navbar() {
             <div className='relative'>
               <button
                 ref={buttonRef}
-                className='btn btn-ghost btn-circle'
+                className='btn btn-circle'
                 onClick={handleToggleMenu}
                 aria-label='Toggle menu'
                 aria-expanded={isMenuOpen}
@@ -131,7 +131,7 @@ export default function Navbar() {
               {isMenuOpen && (
                 <div
                   ref={menuRef}
-                  className='absolute right-0 mt-2 w-52 p-2 shadow bg-base-100 rounded-box z-50'
+                  className='text-base-content absolute right-0 mt-2 w-52 p-2 shadow bg-base-100 rounded-box z-50'
                 >
                   <ul className='menu menu-compact'>
                     <li>
@@ -154,7 +154,7 @@ export default function Navbar() {
                         Contact
                       </Link>
                     </li>
-                    <li className='menu-title'>
+                    <li className='text-base-content menu-title'>
                       <span className='text-xs opacity-50'>Ready to book?</span>
                     </li>
                     <li>
