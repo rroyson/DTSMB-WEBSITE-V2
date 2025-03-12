@@ -3,9 +3,11 @@ import ContactForm from '@/components/ContactForm'
 import { MAIN_EMAIL } from '@/utils/env'
 
 export const metadata = {
-  title: 'DTSMB | Contact Us',
+  title: 'Contact Us | The Charleston Wedding Band - DTSMB',
   description:
-    'Contact Dans Tramp Stamp and the Money Bags to book your event or inquire about our services.',
+    'Book The Charleston Wedding Band for your wedding, corporate event, or private party. Fill out our contact form or call us directly.',
+  keywords:
+    'book wedding band, hire live band, Charleston wedding music, contact DTSMB, event booking',
 }
 
 export default function ContactPage() {

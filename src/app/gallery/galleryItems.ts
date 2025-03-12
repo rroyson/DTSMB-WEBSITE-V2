@@ -25,14 +25,14 @@ const baseItems = [
   {
     type: 'image' as const,
     src: '/images/dtsmb/zach-singin.jpg',
-    alt: 'Zach singing during a performance',
+    alt: 'Lead vocalist Zach from DTSMB performing crowd favorite song at Charleston wedding',
     category: 'photos',
     description: 'Zach taking lead vocals during a crowd favorite',
   },
   {
     type: 'image' as const,
     src: '/images/dtsmb/danny-couple-black-n-white.jpg',
-    alt: 'Lowndes Grove',
+    alt: 'Black and white professional photography of DTSMB performing at Lowndes Grove wedding venue in Charleston',
     category: 'photos',
     description: 'Live performance at Lowndes Grove',
   },
@@ -99,7 +99,7 @@ const baseItems = [
   {
     type: 'image' as const,
     src: '/images/dtsmb/wedding-couple.jpg',
-    alt: 'Band performing with wedding couple',
+    alt: "The Charleston Wedding Band performing live during couple's first dance at luxury Charleston wedding",
     category: 'photos',
     description:
       'Creating magical moments for a newlywed couple at their reception',
