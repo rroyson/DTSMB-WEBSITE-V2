@@ -2,16 +2,17 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
 import { galleryItems } from './galleryItems'
+import { motion } from 'framer-motion'
 
 type Category = 'all' | 'live' | 'photos'
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('all')
   const [selectedItem, setSelectedItem] = useState<string | null>(null)
-  const [isLoaded, setIsLoaded] = useState(false)
   const modalRef = useRef<HTMLDivElement>(null)
+  const clickPositionRef = useRef({ x: 0, y: 0 })
+  const imageRef = useRef<HTMLDivElement>(null)
 
   const filteredItems =
     selectedCategory === 'all'
@@ -25,9 +26,6 @@ export default function GalleryPage() {
   ]
 
   useEffect(() => {
-    // Mark as loaded after a short delay to allow for animation
-    const timer = setTimeout(() => setIsLoaded(true), 500)
-
     // Add ESC key listener for modal
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedItem(null)
@@ -36,10 +34,32 @@ export default function GalleryPage() {
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      clearTimeout(timer)
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [])
+
+  // Effect to handle modal opening and centering
+  useEffect(() => {
+    // When a new item is selected
+    if (selectedItem) {
+      // Short timeout to allow the modal to render
+      const timer = setTimeout(() => {
+        // Make sure imageRef.current is still valid when the timeout runs
+        if (imageRef.current) {
+          // Use scroll into view to center the image - simpler and more reliable
+          imageRef.current.scrollIntoView({
+            behavior: 'auto',
+            block: 'center',
+            inline: 'center',
+          })
+        }
+      }, 50) // Reduced timeout for faster response
+
+      return () => {
+        clearTimeout(timer)
+      }
+    }
+  }, [selectedItem])
 
   // Handle click outside modal to close
   useEffect(() => {
@@ -61,42 +81,37 @@ export default function GalleryPage() {
     }
   }, [selectedItem])
 
+  const handleItemClick = (id: string, e: React.MouseEvent) => {
+    // Save the click position relative to the viewport
+    clickPositionRef.current = {
+      x: e.clientX,
+      y: e.clientY,
+    }
+    setSelectedItem(id)
+  }
+
   return (
     <div className='min-h-screen bg-base-100 py-12 px-4 sm:px-6 lg:px-8'>
       <motion.div
         className='max-w-7xl mx-auto'
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
+        {/* Simplified header animation */}
         <div className='text-center mb-12'>
-          <motion.h1
-            className='text-base-content text-4xl md:text-5xl font-serif font-bold mb-4'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
+          <h1 className='text-base-content text-4xl md:text-5xl font-serif font-bold mb-4'>
             Gallery
-          </motion.h1>
-          <motion.p
-            className='text-xl md:text-2xl font-medium text-base-content max-w-2xl mx-auto leading-relaxed'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
+          </h1>
+          <p className='text-xl md:text-2xl font-medium text-base-content max-w-2xl mx-auto leading-relaxed'>
             Experience our performances through photos and videos
-          </motion.p>
+          </p>
         </div>
 
-        {/* Category Filter */}
-        <motion.div
-          className='flex flex-wrap justify-center gap-3 mb-12'
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          {categories.map((category, index) => (
-            <motion.button
+        {/* Simplified category filter */}
+        <div className='flex flex-wrap justify-center gap-3 mb-12'>
+          {categories.map((category) => (
+            <button
               key={category.value}
               onClick={() => setSelectedCategory(category.value)}
               className={`px-6 py-2 rounded-full transition-all duration-300 ${
@@ -104,79 +119,66 @@ export default function GalleryPage() {
                   ? 'bg-primary text-primary-content shadow-md'
                   : 'bg-base-200 hover:bg-base-300 text-base-content'
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 + index * 0.1 }}
             >
               {category.label}
-            </motion.button>
+            </button>
           ))}
-        </motion.div>
-
-        {/* Gallery Grid */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
-          <AnimatePresence>
-            {filteredItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{
-                  opacity: isLoaded ? 1 : 0,
-                  scale: isLoaded ? 1 : 0.9,
-                  transition: { delay: index * 0.1 },
-                }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                className='group bg-base-200/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300'
-              >
-                <div
-                  className='relative aspect-[4/3] overflow-hidden cursor-pointer'
-                  onClick={() => setSelectedItem(item.id)}
-                >
-                  {item.type === 'image' ? (
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-                      className='object-cover transition-transform duration-500 group-hover:scale-105'
-                    />
-                  ) : (
-                    <div className='w-full overflow-hidden rounded-lg h-full'>
-                      <iframe
-                        src={`https://www.youtube.com/embed/${item.youtubeId}`}
-                        title={item.description}
-                        className='w-full h-full'
-                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  )}
-                </div>
-                <div className='p-4'>
-                  <p className='text-base-content/80 text-sm'>
-                    {item.description}
-                  </p>
-                  <div className='flex items-center justify-between mt-2'>
-                    <span className='inline-block px-2 py-1 text-xs rounded-md bg-base-300/80 text-base-content/70'>
-                      {item.category}
-                    </span>
-                    <button
-                      onClick={() => setSelectedItem(item.id)}
-                      className='text-sm text-primary hover:text-primary-focus transition-colors'
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
         </div>
 
-        {/* Add link to more videos */}
+        {/* Simplified gallery grid */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
+          {filteredItems.map((item) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className='group bg-base-200/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300'
+            >
+              <div
+                className='relative aspect-[4/3] overflow-hidden cursor-pointer'
+                onClick={(e) => handleItemClick(item.id, e)}
+              >
+                {item.type === 'image' ? (
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                    className='object-cover transition-transform duration-500 group-hover:scale-105'
+                  />
+                ) : (
+                  <div className='w-full overflow-hidden rounded-lg h-full'>
+                    <iframe
+                      src={`https://www.youtube.com/embed/${item.youtubeId}`}
+                      title={item.description}
+                      className='w-full h-full'
+                      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                )}
+              </div>
+              <div className='p-4'>
+                <p className='text-base-content/80 text-sm'>
+                  {item.description}
+                </p>
+                <div className='flex items-center justify-between mt-2'>
+                  <span className='inline-block px-2 py-1 text-xs rounded-md bg-base-300/80 text-base-content/70'>
+                    {item.category}
+                  </span>
+                  <button
+                    onClick={(e) => handleItemClick(item.id, e)}
+                    className='text-sm text-primary hover:text-primary-focus transition-colors'
+                  >
+                    View
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* YouTube link */}
         <div className='text-info-content text-center mt-12'>
           <a
             href='https://www.youtube.com/@dtsmb5919'
@@ -195,94 +197,132 @@ export default function GalleryPage() {
           </a>
         </div>
 
-        {/* Modal for expanded view */}
-        <AnimatePresence>
-          {selectedItem !== null && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className='fixed inset-0 bg-black/90 z-50 h-screen flex items-center justify-center '
-            >
-              {(() => {
-                const item = galleryItems.find(
-                  (item) => item.id === selectedItem
-                )
+        {selectedItem !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className='fixed inset-0 bg-black/95 z-50 overflow-auto'
+            onClick={() => setSelectedItem(null)}
+          >
+            {(() => {
+              const item = galleryItems.find((item) => item.id === selectedItem)
+              if (!item) return null
 
-                if (!item) return null
+              return (
+                <motion.div
+                  ref={modalRef}
+                  initial={{
+                    scale: 0.9,
+                    opacity: 0,
+                  }}
+                  animate={{
+                    scale: 1,
+                    opacity: 1,
+                  }}
+                  exit={{
+                    scale: 0.9,
+                    opacity: 0,
+                  }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={(e) => e.stopPropagation()}
+                  className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent rounded-lg overflow-hidden shadow-2xl'
+                  style={{
+                    maxHeight: '95vh',
+                    maxWidth: '95vw',
+                  }}
+                >
+                  {/* Image or video content */}
+                  {item.type === 'image' ? (
+                    <div
+                      className='flex items-center justify-center'
+                      style={{ minHeight: '50vh' }}
+                    >
+                      <div ref={imageRef} className='relative'>
+                        <Image
+                          src={item.src}
+                          alt={item.alt || 'Gallery image'}
+                          width={1200}
+                          height={800}
+                          className='object-contain'
+                          sizes='95vw'
+                          priority
+                          style={{
+                            maxHeight: '85vh',
+                            maxWidth: '90vw',
+                          }}
+                        />
 
-                return (
-                  <motion.div
-                    ref={modalRef}
-                    className='relative max-w-6xl w-full max-h-[90vh] bg-base-100/10 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl'
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0.9, opacity: 0 }}
-                    transition={{ type: 'spring', damping: 25 }}
-                  >
-                    <div className='relative'>
-                      {item.type === 'image' ? (
-                        <div className='relative aspect-video'>
-                          <Image
-                            src={item.src}
-                            alt={item.alt || 'Gallery image'}
-                            fill
-                            className='object-contain'
-                            sizes='(max-width: 768px) 100vw, 1200px'
-                          />
-                        </div>
-                      ) : (
-                        <div className='w-full max-w-4xl mx-auto'>
-                          <div className='w-full h-64 overflow-hidden rounded-lg'>
-                            <iframe
-                              src={`https://www.youtube.com/embed/${item.youtubeId}`}
-                              title={item.description}
-                              className='w-full h-full'
-                              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                              allowFullScreen
-                            ></iframe>
-                          </div>
-                          <p className='mt-4 text-base-content'>
-                            {item.description}
+                        {/* Minimal caption at bottom */}
+                        <div className='absolute bottom-0 left-0 right-0 p-2 bg-black/50 backdrop-blur-sm text-white text-sm transform translate-y-full hover:translate-y-0 transition-transform duration-300'>
+                          <p>{item.description}</p>
+                          <p className='text-xs opacity-75'>
+                            Category: {item.category}
                           </p>
                         </div>
-                      )}
+                      </div>
                     </div>
-
-                    <div className='p-4 md:p-6 text-base-content/90'>
-                      <p className='text-lg'>{item.description}</p>
-                      <p className='text-sm mt-2 text-base-content/70'>
-                        Category: {item.category}
-                      </p>
-                    </div>
-
-                    <button
-                      className='absolute top-4 right-4 text-white hover:text-primary transition-colors'
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setSelectedItem(null)
-                      }}
+                  ) : (
+                    <div
+                      className='flex items-center justify-center'
+                      style={{ minHeight: '50vh' }}
                     >
-                      <svg
-                        className='w-8 h-8'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        strokeWidth={2}
+                      <div
+                        ref={imageRef}
+                        className='aspect-video overflow-hidden rounded-lg'
+                        style={{
+                          maxWidth: '90vw',
+                          maxHeight: '85vh',
+                        }}
                       >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          d='M6 18L18 6M6 6l12 12'
-                        />
-                      </svg>
-                    </button>
-                  </motion.div>
-                )
-              })()}
-            </motion.div>
-          )}
-        </AnimatePresence>
+                        <iframe
+                          src={`https://www.youtube.com/embed/${item.youtubeId}`}
+                          title={item.description}
+                          className='w-full h-full'
+                          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <div className='absolute bottom-0 left-0 right-0 p-2 bg-black/50 backdrop-blur-sm text-white text-sm transform translate-y-full hover:translate-y-0 transition-transform duration-300'>
+                        <p className='text-base-content text-sm'>
+                          {item.description}
+                        </p>
+                        <p className='text-xs opacity-75'>
+                          Category: {item.category}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Close button */}
+                  <button
+                    className='absolute top-2 right-2 text-white hover:text-primary bg-black/50 rounded-full p-1 transition-colors'
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setSelectedItem(null)
+                    }}
+                    aria-label='Close modal'
+                  >
+                    <svg
+                      className='w-6 h-6'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        d='M6 18L18 6M6 6l12 12'
+                      />
+                    </svg>
+                  </button>
+                </motion.div>
+              )
+            })()}
+          </motion.div>
+        )}
       </motion.div>
     </div>
   )
