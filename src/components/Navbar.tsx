@@ -1,11 +1,47 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import ThemeSwitcher from './ThemeSwitcher'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null) // Add ref for the button
+
+  const handleToggleMenu = () => {
+    console.log('Clicked', isMenuOpen)
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false)
+  }
+
+  // Close the menu when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      // Don't close if clicking the button or the menu
+      if (
+        (buttonRef.current &&
+          buttonRef.current.contains(event.target as Node)) ||
+        (menuRef.current && menuRef.current.contains(event.target as Node))
+      ) {
+        return // Don't do anything if clicking the button or menu
+      }
+
+      // Otherwise, close the menu
+      setIsMenuOpen(false)
+    }
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMenuOpen])
 
   return (
     <header className='bg-base-100 shadow-md sticky top-0 z-50'>
@@ -68,11 +104,13 @@ export default function Navbar() {
           {/* Mobile menu button - Enhanced */}
           <div className='flex items-center gap-3 md:hidden'>
             <ThemeSwitcher />
-            <div className='dropdown dropdown-end'>
-              <div
-                tabIndex={0}
-                role='button'
+            <div className='relative'>
+              <button
+                ref={buttonRef}
                 className='btn btn-ghost btn-circle'
+                onClick={handleToggleMenu}
+                aria-label='Toggle menu'
+                aria-expanded={isMenuOpen}
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -88,79 +126,52 @@ export default function Navbar() {
                     d='M4 6h16M4 12h16M4 18h16'
                   />
                 </svg>
-              </div>
-              <ul
-                tabIndex={0}
-                className='dropdown-content menu menu-compact p-2 shadow bg-base-100 rounded-box w-52 mt-4'
-              >
-                <li>
-                  <Link href='/'>Home</Link>
-                </li>
-                <li>
-                  <Link href='/services'>Services</Link>
-                </li>
-                <li>
-                  <Link href='/gallery'>Gallery</Link>
-                </li>
-                <li>
-                  <Link href='/contact'>Contact</Link>
-                </li>
-                <li className='menu-title'>
-                  <span className='text-xs opacity-50'>Ready to book?</span>
-                </li>
-                <li>
-                  <Link
-                    href='/contact'
-                    className='btn btn-primary btn-sm justify-center mt-2'
-                  >
-                    Book Now
-                  </Link>
-                </li>
-              </ul>
+              </button>
+
+              {isMenuOpen && (
+                <div
+                  ref={menuRef}
+                  className='absolute right-0 mt-2 w-52 p-2 shadow bg-base-100 rounded-box z-50'
+                >
+                  <ul className='menu menu-compact'>
+                    <li>
+                      <Link href='/' onClick={handleCloseMenu}>
+                        Home
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href='/services' onClick={handleCloseMenu}>
+                        Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href='/gallery' onClick={handleCloseMenu}>
+                        Gallery
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href='/contact' onClick={handleCloseMenu}>
+                        Contact
+                      </Link>
+                    </li>
+                    <li className='menu-title'>
+                      <span className='text-xs opacity-50'>Ready to book?</span>
+                    </li>
+                    <li>
+                      <Link
+                        href='/contact'
+                        className='btn btn-primary btn-sm justify-center mt-2'
+                        onClick={handleCloseMenu}
+                      >
+                        Book Now
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className='md:hidden mt-4 pb-4 space-y-4 flex flex-col'>
-            <Link
-              href='/'
-              className='text-base-content hover:text-primary transition-colors px-2 py-1'
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href='/services'
-              className='text-base-content hover:text-primary transition-colors px-2 py-1'
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href='/gallery'
-              className='text-base-content hover:text-primary transition-colors px-2 py-1'
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Gallery
-            </Link>
-            <Link
-              href='/contact'
-              className='text-base-content hover:text-primary transition-colors px-2 py-1'
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <Link
-              href='/contact'
-              className='btn btn-primary text-primary-content w-full'
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Book Now
-            </Link>
-          </div>
-        )}
       </nav>
     </header>
   )
