@@ -54,7 +54,7 @@ export default function ServicesPage() {
               <a href='#packages' className='btn btn-primary'>
                 View Packages
               </a>
-              <a href='/contact' className='btn btn-outline'>
+              <a href='/contact' className='btn btn-base'>
                 Contact Us
               </a>
             </div>

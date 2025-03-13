@@ -235,7 +235,7 @@ export default function Home() {
                     Proud recipients of the WeddingWire Couples&apos; Choice
                     Award two years in a row!
                   </p>
-                  <p className='mb-6 text-base-content'>
+                  <p className='mb-6 text-base-content dark:text-neutral-content'>
                     This prestigious award recognizes the top wedding
                     professionals for excellence in quality, service,
                     responsiveness, and professionalism—as determined by reviews
@@ -246,7 +246,7 @@ export default function Home() {
                       href='https://www.weddingwire.com/reviews/the-charleston-wedding-band-charleston/463b9d1742eb296f.html'
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='btn btn-primary'
+                      className='btn btn-base'
                     >
                       <span className='mr-2'>💍</span> Read WeddingWire Reviews
                     </a>

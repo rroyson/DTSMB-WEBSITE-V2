@@ -23,7 +23,7 @@ export default function ContactPage() {
         />
         <div className='absolute inset-0 bg-gradient-to-b from-neutral/80 via-neutral/50 to-neutral/80' />
         <div className='absolute inset-0 flex items-center justify-center'>
-          <div className='text-center text-neutral-content dark:text-base-content px-4 max-w-3xl mx-4'>
+          <div className='text-center text-neutral-content px-4 max-w-3xl mx-4'>
             <h1 className='text-4xl md:text-5xl font-serif font-bold mb-6 drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]'>
               Contact Us
             </h1>
