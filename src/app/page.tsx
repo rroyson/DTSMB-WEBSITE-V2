@@ -235,7 +235,7 @@ export default function Home() {
                     Proud recipients of the WeddingWire Couples&apos; Choice
                     Award two years in a row!
                   </p>
-                  <p className='mb-6 text-base-content dark:text-neutral-content'>
+                  <p className='mb-6 text-neutral-content'>
                     This prestigious award recognizes the top wedding
                     professionals for excellence in quality, service,
                     responsiveness, and professionalism—as determined by reviews
