@@ -226,7 +226,6 @@ export default function ContactForm() {
             value={formData.eventDate}
             onChange={handleChange}
             className='input input-bordered w-full text-base-content bg-base-100'
-            placeholder='MM/DD/YYYY'
           />
         </div>
 
