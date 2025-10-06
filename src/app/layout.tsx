@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/next'
+import { ReCaptchaProvider } from 'next-recaptcha-v3'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -37,10 +38,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfairDisplay.variable} font-sans min-h-screen flex flex-col`}
       >
-        <Navbar />
-        <main className='flex-grow will-change-transform'>{children}</main>
-        <Footer />
-        <Analytics />
+        <ReCaptchaProvider
+          reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''}
+        >
+          <Navbar />
+          <main className='flex-grow will-change-transform'>{children}</main>
+          <Footer />
+          <Analytics />
+        </ReCaptchaProvider>
       </body>
     </html>
   )

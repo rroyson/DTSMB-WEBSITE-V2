@@ -21,6 +21,7 @@ export async function POST(request: Request) {
       eventDate,
       eventDetails,
       newsletter,
+      recaptchaToken,
     } = body
 
     // Validate required fields
@@ -28,6 +29,36 @@ export async function POST(request: Request) {
       console.error('Missing required fields')
       return NextResponse.json(
         { error: 'Required fields are missing' },
+        { status: 400 }
+      )
+    }
+
+    // Verify reCAPTCHA token
+    if (!recaptchaToken) {
+      return NextResponse.json(
+        { error: 'reCAPTCHA verification failed' },
+        { status: 400 }
+      )
+    }
+
+    const recaptchaResponse = await fetch(
+      'https://www.google.com/recaptcha/api/siteverify',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+      }
+    )
+
+    const recaptchaResult = await recaptchaResponse.json()
+    console.log('reCAPTCHA score:', recaptchaResult.score)
+
+    if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
+      console.error('reCAPTCHA verification failed:', recaptchaResult)
+      return NextResponse.json(
+        { error: 'reCAPTCHA verification failed' },
         { status: 400 }
       )
     }
@@ -197,7 +228,6 @@ export async function POST(request: Request) {
         {
           error: 'Email service error',
           message: emailError.message || 'Unknown email service error',
-          apiKey: resendApiKey.substring(0, 5) + '...', // Show first few chars for debugging
         },
         { status: 500 }
       )
