@@ -1,14 +1,17 @@
 'use client'
 
 import { useState } from 'react'
+import { useReCaptcha } from 'next-recaptcha-v3'
 
 const PUBLIC_ENV = {
   MAIN_EMAIL: 'thecharlestonweddingband@gmail.com',
 }
 
 export default function ContactForm() {
+  const { executeRecaptcha } = useReCaptcha()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [formError, setFormError] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,15 +39,19 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setFormError('')
 
     try {
+      // Execute reCAPTCHA
+      const token = await executeRecaptcha('form_submit')
+
       // Make API call to send email
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, recaptchaToken: token }),
       })
 
       if (!response.ok) {
@@ -77,6 +84,9 @@ export default function ContactForm() {
       }, 3000)
     } catch (error) {
       console.error('Error submitting form:', error)
+      setFormError(
+        `Unable to submit form. Please try again or email us directly at ${PUBLIC_ENV.MAIN_EMAIL}`
+      )
       setIsSubmitting(false)
     }
   }
@@ -263,6 +273,25 @@ export default function ContactForm() {
             </span>
           </label>
         </div>
+
+        {formError && (
+          <div className='alert alert-error'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='stroke-current shrink-0 h-6 w-6'
+              fill='none'
+              viewBox='0 0 24 24'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                d='M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z'
+              />
+            </svg>
+            <span>{formError}</span>
+          </div>
+        )}
 
         <button
           type='submit'
