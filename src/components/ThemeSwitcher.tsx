@@ -12,6 +12,7 @@ export default function ThemeSwitcher() {
   // Initialize theme from localStorage or default to 'dtsmb'
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'light'
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- SSR-safe localStorage read must happen post-mount
     setTheme(savedTheme)
     document.documentElement.setAttribute('data-theme', savedTheme)
   }, [])
