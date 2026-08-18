@@ -2,31 +2,33 @@
   "name": "dtsmb-website",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@vercel/analytics": "^1.5.0",
-    "daisyui": "^5.0.0",
-    "framer-motion": "^12.4.11",
-    "next": "15.2.1",
-    "next-recaptcha-v3": "^1.5.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "resend": "^4.1.2"
+    "@vercel/analytics": "^2.0.1",
+    "daisyui": "^5.7.18",
+    "framer-motion": "^13.1.0",
+    "next": "^16.3.1",
+    "next-recaptcha-v3": "^1.5.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "resend": "^6.20.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.1",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
   }
 }
